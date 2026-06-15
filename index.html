@@ -166,25 +166,35 @@ autocomplete="off"
 
 <h2>🔎 Evidências</h2>
 
-<input id="pista1" placeholder="Evidência 1"><br>
+<input id="pista1" placeholder="Evidência 1"
+autocomplete="new-password"><br>
 
-<input id="pista2" placeholder="Evidência 2"><br>
+<input id="pista2" placeholder="Evidência 2"
+autocomplete="new-password"><br>
 
-<input id="pista3" placeholder="Evidência 3"><br>
+<input id="pista3" placeholder="Evidência 3"
+autocomplete="new-password"><br>
 
-<input id="pista4" placeholder="Evidência 4"><br>
+<input id="pista4" placeholder="Evidência 4"
+autocomplete="new-password"><br>
 
-<input id="pista5" placeholder="Evidência 5"><br>
+<input id="pista5" placeholder="Evidência 5"
+autocomplete="new-password"><br>
 
-<input id="pista6" placeholder="Evidência 6"><br>
+<input id="pista6" placeholder="Evidência 6"
+autocomplete="new-password"><br>
 
-<input id="pista7" placeholder="Evidência 7"><br>
+<input id="pista7" placeholder="Evidência 7"
+autocomplete="new-password"><br>
 
-<input id="pista8" placeholder="Evidência 8"><br>
+<input id="pista8" placeholder="Evidência 8"
+autocomplete="new-password"><br>
 
-<input id="pista9" placeholder="Evidência 9"><br>
+<input id="pista9" placeholder="Evidência 9"
+autocomplete="new-password"><br>
 
-<input id="pista10" placeholder="Evidência 10"><br><br>
+<input id="pista10" placeholder="Evidência 10"
+autocomplete="new-password"><br><br>
 
 
 
@@ -194,8 +204,9 @@ autocomplete="off"
 <br><br>
 
 <label>Resposta oficial:</label><br>
-<input id="respostaFinal">
-autocomplete="off"
+<input id="respostaFinal"
+autocomplete="new-password">
+
 
 <br><br>
 
@@ -380,7 +391,9 @@ INICIAR MISSÃO
 
 <input
 id="resposta"
-placeholder="Digite a fórmula geral">
+name="resposta_jogo_1"
+placeholder="Digite a fórmula geral"
+autocomplete="new-password">
 
 
 <button onclick="verificarResposta()">
@@ -513,12 +526,12 @@ Pontuação: 10
     </div>
 
 
-    <input 
-    id="resposta2"
-
-
-="off"
-    placeholder="Digite a expressão geral">
+    <input
+id="resposta2"
+name="resposta_jogo_2"
+placeholder="Digite a expressão geral"
+autocomplete="new-password"
+>
 
 
     <button id="investigar2" onclick="verificarRespostaCaso2()">
