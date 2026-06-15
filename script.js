@@ -2372,17 +2372,13 @@ let dicasExtraUsadas = 0;
 let dicasExtraAbertas = [];
 
 
-async function abrirInvestigacao4(){
+function abrirInvestigacao4(){
 
 
-// busca a investigação salva
-
-let resposta = await fetch("/dados");
-
-let dados = await resposta.json();
+let dados = localStorage.getItem("investigacao4");
 
 
-if(!dados.investigacao4.criada){
+if(!dados){
 
 alert("🔒 Nenhuma investigação criada pelo professor.");
 
@@ -2391,26 +2387,20 @@ return;
 }
 
 
-// guarda os dados
+investigacaoExtra = JSON.parse(dados);
 
-investigacaoExtra = dados.investigacao4;
-
-
-// fecha menu
 
 document.getElementById("telaInvestigacoes").style.display="none";
 
 
-// abre extra1
-
 document.getElementById("extra1").style.display="block";
 
 
-// limpa caso tenha jogado antes
-
 document.getElementById("listaExtra").innerHTML="";
 
+
 document.getElementById("respostaExtra").value="";
+
 
 document.getElementById("pontosExtra").innerHTML=
 "Pontuação: 11";
@@ -2419,23 +2409,22 @@ document.getElementById("pontosExtra").innerHTML=
 dicasExtraUsadas=0;
 
 dicasExtraAbertas=[];
-dicaIndutivaUsada=false;
 
-// libera novamente os botões das pistas
 
 let botoes =
 document.querySelectorAll("#menuExtra button");
 
 
-botoes.forEach(botao =>{
+botoes.forEach(botao=>{
 
 botao.disabled=false;
 
 botao.style.opacity="1";
 
 });
-}
 
+
+}
 function modoProfessor(){
 
 let senha = prompt("Digite a senha do professor:");
@@ -2510,17 +2499,10 @@ document.getElementById("dicaIndutiva").value
 
 // envia para o servidor salvar
 
-await fetch("/salvar-investigacao",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify(investigacao)
-
-});
+localStorage.setItem(
+"investigacao4",
+JSON.stringify(investigacao)
+);
 
 
 alert("🕵️ Investigação criada com sucesso!");
