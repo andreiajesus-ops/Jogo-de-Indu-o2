@@ -1,0 +1,25 @@
+{
+  "ranking": [],
+  "investigacao4": {
+    "criada": true,
+    "titulo": "Andreia",
+    "pistas": [
+      "ne",
+      "a",
+      "d",
+      "",
+      "a",
+      "a",
+      "",
+      "d",
+      "e",
+      "r"
+    ],
+    "respostas": [
+      "a"
+    ],
+    "respostaFinal": "a",
+    "mensagemFinal": "e",
+    "dicaIndutiva": "t"
+  }
+}

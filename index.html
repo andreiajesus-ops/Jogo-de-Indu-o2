@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Caso Indutivo</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+<div id="jogo">
+
+
+
+<!-- ==============================
+        TELA 1 - CAPA DO JOGO
+================================== -->
+
+
+<div id="telaInicial">
+
+
+    <button id="botaoNova" onclick="novaInvestigacao()">
+
+🕵️ Nova Investigação
+
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- ==============================
+      TELA 2 - CADASTRO DA EQUIPE
+================================== -->
+
+
+<!-- CADASTRO DA EQUIPE -->
+
+<div id="cadastro">
+
+
+<div id="caixaCadastro">
+
+
+<h1>🕵️ Registro dos<br>Investigadores</h1>
+
+
+<label>
+Nome da equipe:
+</label>
+
+<input 
+id="nomeEquipe"
+autocomplete="off"
+placeholder="Digite o nome da equipe">
+
+
+
+<label>
+Turma:
+</label>
+
+
+<input
+id="turma"
+autocomplete="off"
+placeholder="Ex: 2º ano B">
+
+
+
+<button onclick="liberarArquivos()">
+
+📂 ABRIR ARQUIVOS SECRETOS
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+    <!-- MENSAGEM BONITA DE LIBERAÇÃO -->
+
+
+    <div id="mensagem">
+
+
+        <h1>📂 Arquivos Desbloqueados</h1>
+
+
+        <p id="textoMensagem"></p>
+
+
+        <button onclick="continuar()">
+
+            CONTINUAR
+
+        </button>
+
+
+    </div>
+
+
+
+
+
+
+<!-- ==============================
+      HISTÓRIA DO JOGO
+================================== -->
+
+<div id="historia"
+onclick="avancarHistoria()"
+style="display:none;">
+
+
+<div id="nomeEquipeHistoria"></div>
+
+
+</div>
+
+<!-- =====================
+TELA DAS INVESTIGAÇÕES
+===================== -->
+
+<div id="telaInvestigacoes" style="display:none;">
+
+<button id="btnInv1" onclick="abrirCaso1()"></button>
+
+<button id="btnInv2" onclick="emConstrucao()"></button>
+
+<button id="btnInv3" onclick="emConstrucao()"></button>
+
+<button id="btnInv4" onclick="abrirInvestigacao4()"></button>
+
+<button id="btnProfessor" onclick="modoProfessor()"></button>
+
+</div>
+
+<!-- ==========================
+MODO CRIAÇÃO PROFESSOR
+========================== -->
+
+<div id="modoCriacao" style="display:none;">
+
+<h1>🔒 Criar Nova Investigação</h1>
+
+<label>Nome do caso:</label><br>
+<input id="novoTitulo"><br><br>
+autocomplete="off"
+
+
+<h2>🔎 Evidências</h2>
+
+<input id="pista1" placeholder="Evidência 1"><br>
+autocomplete="off"
+<input id="pista2" placeholder="Evidência 2"><br>
+autocomplete="off"
+<input id="pista3" placeholder="Evidência 3"><br>
+autocomplete="off"
+<input id="pista4" placeholder="Evidência 4"><br>
+autocomplete="off"
+<input id="pista5" placeholder="Evidência 5"><br>
+autocomplete="off"
+<input id="pista6" placeholder="Evidência 6"><br>
+autocomplete="off"
+<input id="pista7" placeholder="Evidência 7"><br>
+autocomplete="off"
+<input id="pista8" placeholder="Evidência 8"><br>
+autocomplete="off"
+<input id="pista9" placeholder="Evidência 9"><br>
+autocomplete="off"
+<input id="pista10" placeholder="Evidência 10"><br><br>
+autocomplete="off"
+
+
+<label>Respostas aceitas (separe por vírgula):</label><br>
+<textarea id="novasRespostas"></textarea>
+
+<br><br>
+
+<label>Resposta oficial:</label><br>
+<input id="respostaFinal">
+autocomplete="off"
+
+<br><br>
+
+<label>Mensagem após descobrir:</label><br>
+<textarea id="mensagemFinal"></textarea>
+
+<br><br>
+
+<label>Dica da investigação profunda (-1 ponto):</label><br>
+<textarea id="dicaIndutiva"></textarea>
+
+<br><br>
+
+<button onclick="salvarInvestigacaoProfessor()">
+💾 Salvar Investigação
+</button>
+
+</div>
+
+<!-- =====================
+INVESTIGAÇÃO PROFESSOR
+===================== -->
+
+<div id="extra1" style="display:none;">
+
+
+<div id="menuExtra">
+
+<button onclick="abrirDicaExtra(0)">1</button>
+<button onclick="abrirDicaExtra(1)">2</button>
+<button onclick="abrirDicaExtra(2)">3</button>
+<button onclick="abrirDicaExtra(3)">4</button>
+<button onclick="abrirDicaExtra(4)">5</button>
+<button onclick="abrirDicaExtra(5)">6</button>
+<button onclick="abrirDicaExtra(6)">7</button>
+<button onclick="abrirDicaExtra(7)">8</button>
+<button onclick="abrirDicaExtra(8)">9</button>
+<button onclick="abrirDicaExtra(9)">10</button>
+
+</div>
+
+
+<div id="areaExtra">
+
+<h2>🔎 Evidências encontradas</h2>
+
+<ul id="listaExtra"></ul>
+
+</div>
+
+
+<div id="respostaExtraArea">
+
+<input id="respostaExtra"
+autocomplete="off"
+placeholder="Digite o padrão encontrado">
+
+
+<button onclick="verificarRespostaExtra()">
+🔎 INVESTIGAR
+</button>
+
+
+</div>
+<h2 id="pontosExtra">
+Pontuação: 11
+</h2>
+
+</div>
+
+
+<!-- =====================
+INVESTIGAÇÃO PROFUNDA EXTRA
+===================== -->
+
+<div id="extra2" style="display:none;">
+
+
+<div id="mensagemExtra2"></div>
+
+
+<button id="btnDicaExtra2" onclick="usarDicaIndutiva()">
+💡 DICA
+</button>
+
+
+<button id="btnFinalizarExtra" onclick="finalizarExtra()">
+FINALIZAR
+</button>
+
+
+</div>
+
+
+
+<!-- AVISO DA EQUIPE -->
+
+<div id="avisoEquipe">
+
+<h1>🕵️ Investigadores</h1>
+
+<p id="textoEquipe"></p>
+
+<button onclick="abrirCaso1()">
+
+INICIAR MISSÃO
+
+</button>
+
+</div>
+
+
+
+
+
+<!-- TELA DO CASO 1 -->
+
+<div id="caso1" style="display:none;">
+<button id="botaoAcessar" onclick="abrirFolha1()">
+
+🔎 VAMOS PARA O PRIMEIRO CASO
+
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- FOLHA DO CASO -->
+
+<div id="folha1" style="display:none;">
+
+
+<!-- botões laterais -->
+
+<div id="menuDicas">
+
+<button onclick="abrirDica(0)">1</button>
+<button onclick="abrirDica(1)">2</button>
+<button onclick="abrirDica(2)">3</button>
+<button onclick="abrirDica(3)">4</button>
+<button onclick="abrirDica(4)">5</button>
+<button onclick="abrirDica(5)">6</button>
+<button onclick="abrirDica(6)">7</button>
+<button onclick="abrirDica(7)">8</button>
+<button onclick="abrirDica(8)">9</button>
+<button onclick="abrirDica(9)">10</button>
+
+
+</div>
+
+
+
+
+<!-- onde aparecem as pistas -->
+
+<div id="folhaPistas">
+
+
+<h2>🃏 Evidências encontradas</h2>
+
+
+<ul id="listaDicas">
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+<!-- resposta -->
+
+<div id="areaResposta">
+
+
+<input 
+id="resposta"
+autocomplete="off"
+placeholder="Digite a fórmula geral">
+
+
+<button onclick="verificarResposta()">
+
+🔎 INVESTIGAR
+
+</button>
+
+
+<h3 id="pontuacao">
+Pontuação: 10
+</h3>
+
+
+</div>
+
+
+
+</div>
+
+<!-- =======================
+     CASO BASE
+======================= -->
+
+<div id="casoBase" style="display:none;">
+
+
+<div id="validarBase">
+
+<h2>O caso base foi validado?</h2>
+
+
+<button onclick="responderCasoBase(true)">
+✔ SIM
+</button>
+
+
+<button onclick="responderCasoBase(false)">
+✖ NÃO
+</button>
+
+
+</div>
+
+
+</div>
+<!-- =========================
+     PASSO INDUTIVO
+========================= -->
+
+<div id="passoIndutivo" style="display:none;">
+
+    <div id="botoesInducao">
+
+        <button id="btnDicaInducao" onclick="mostrarDicaInducao()">
+            🔍 Solicitar dica (-1 ponto)
+        </button>
+
+        <button onclick="finalizarCaso()">
+    ✅ Finalizar caso
+</button>
+
+    </div>
+
+
+    <div id="dicaInducao"></div>
+
+
+</div>
+
+
+<!-- ========================= -->
+<!-- FINAL DO CASO -->
+<!-- ========================= -->
+
+<div id="fimCaso" style="display:none">
+
+    <button id="btnEncerrar" onclick="encerrarJogo()">
+        🏆 Encerrar investigação
+    </button>
+
+
+   <button id="btnProximoCaso" onclick="abrirProximoCaso()">
+        📂 Próximo caso
+</button>
+
+</div>
+
+
+
+<!-- ========================= -->
+<!-- CASO 2 -->
+<!-- ========================= -->
+
+
+<div id="caso2" style="display:none">
+
+    <button id="abrirCaso2" onclick="abrirFolha2()">
+        📂 ACESSAR
+    </button>
+
+</div>
+
+
+
+<div id="folha2" style="display:none">
+
+
+    <div id="menuDicas2">
+
+        <button onclick="abrirDicaCaso2(0)">1</button>
+        <button onclick="abrirDicaCaso2(1)">2</button>
+        <button onclick="abrirDicaCaso2(2)">3</button>
+        <button onclick="abrirDicaCaso2(3)">4</button>
+        <button onclick="abrirDicaCaso2(4)">5</button>
+        <button onclick="abrirDicaCaso2(5)">6</button>
+        <button onclick="abrirDicaCaso2(6)">7</button>
+        <button onclick="abrirDicaCaso2(7)">8</button>
+        <button onclick="abrirDicaCaso2(8)">9</button>
+        <button onclick="abrirDicaCaso2(9)">10</button>
+
+    </div>
+
+
+    <div id="areaDicas2">
+
+        <h1>🧩 Evidências encontradas</h1>
+
+        <ul id="listaDicas2"></ul>
+
+    </div>
+
+
+    <input 
+    id="resposta2"
+autocomplete="off"
+    placeholder="Digite a expressão geral">
+
+
+    <button id="investigar2" onclick="verificarRespostaCaso2()">
+        🔍 Investigar
+    </button>
+
+
+    <h2 id="pontuacao2">
+        Pontuação: 11
+    </h2>
+
+
+</div>
+<!-- ========================= -->
+<!-- CASO BASE 2 -->
+<!-- ========================= -->
+
+
+<div id="casoBase2" style="display:none;">
+
+
+    <div id="perguntaCasoBase2">
+
+
+        <h2>O caso base foi validado?</h2>
+
+
+        <button onclick="responderCasoBase2(true)">
+    ✔ SIM
+</button>
+
+
+<button onclick="responderCasoBase2(false)">
+    ✖ NÃO
+</button>
+
+
+    </div>
+
+
+</div>
+<!-- ==========================
+ PASSO INDUTIVO CASO 2
+========================== -->
+
+<div id="passoIndutivo2" style="display:none;">
+
+
+    <div id="botoesInducao2">
+
+
+        <button id="btnDicaInducao2" onclick="mostrarDicaInducao2()">
+            🔍 Solicitar dica (-1 ponto)
+        </button>
+
+
+        <button onclick="finalizarCaso2()">
+            📁 Próximo caso
+        </button>
+
+
+    </div>
+
+
+</div>
+
+<!-- =========================
+CASO 3
+========================= -->
+
+<div id="caso3" style="display:none;">
+
+<button id="abrirCaso3" onclick="abrirFolha3()">
+🕵️ Iniciar investigação
+</button>
+
+</div>
+
+
+
+<div id="folha3" style="display:none;">
+
+
+<div id="menuDicas3">
+
+<button onclick="abrirDicaCaso3(0)">1</button>
+<button onclick="abrirDicaCaso3(1)">2</button>
+<button onclick="abrirDicaCaso3(2)">3</button>
+<button onclick="abrirDicaCaso3(3)">4</button>
+<button onclick="abrirDicaCaso3(4)">5</button>
+<button onclick="abrirDicaCaso3(5)">6</button>
+<button onclick="abrirDicaCaso3(6)">7</button>
+<button onclick="abrirDicaCaso3(7)">8</button>
+<button onclick="abrirDicaCaso3(8)">9</button>
+<button onclick="abrirDicaCaso3(9)">10</button>
+
+</div>
+
+
+<div id="areaDicas3">
+
+<h1>🧩 Evidências encontradas</h1>
+
+<ul id="listaDicas3"></ul>
+
+</div>
+
+
+<input id="resposta3"
+autocomplete="off"
+placeholder="Digite a expressão geral">
+
+
+<button id="investigar3"
+onclick="verificarRespostaCaso3()">
+🔍 Investigar
+</button>
+
+
+<div id="pontuacao3">
+Pontuação: 10
+</div>
+
+
+</div>
+
+
+
+<!-- CASO BASE 3 -->
+
+<div id="casoBase3" style="display:none;">
+
+
+<div id="registroCaso3">
+
+<h2>Registro do investigador</h2>
+
+<p>
+Caso Base:<br>
+n = 1<br>
+a₁ = 2¹ = 2 ✔
+</p>
+
+<p>
+Hipótese de indução:<br><br>
+
+aₙ = 2ⁿ
+</p>
+
+
+<p>
+Passo indutivo:<br><br>
+
+aₙ₊₁ = aₙ · 2<br><br>
+
+Substituindo:<br>
+
+aₙ₊₁ = 2ⁿ · 2<br>
+
+aₙ₊₁ = 2ⁿ⁺¹ ✔
+
+</p>
+
+
+</div>
+
+
+
+<div id="botoesInducao3">
+
+
+<button id="btnDicaInducao3"
+onclick="mostrarDicaInducao3()">
+
+🔍 Solicitar dica (-1 ponto)
+
+</button>
+
+
+<button onclick="finalizarCaso3()">
+
+📁 Próximo caso
+
+</button>
+
+
+</div>
+
+
+</div>
+<!-- =========================
+     BONUS PISTA SECRETA
+========================= -->
+
+<div id="bonus" style="display:none;">
+
+
+    <div id="botoesBonus" style="display:none;">
+
+
+        <button id="btnInvestigarBonus"
+        onclick="investigarBonus()">
+
+        INVESTIGAR
+
+        </button>
+
+
+        <button id="btnArquivarBonus"
+        onclick="arquivarBonus()">
+
+        ARQUIVAR
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================
+     BONUS 4 - PISTA ACHADA
+========================= -->
+
+<div 
+id="bonus4" 
+style="display:none;"
+onclick="abrirBonus5()">
+
+
+</div>
+<!-- =========================
+     BONUS 5 - DESAFIO FINAL
+     PERGUNTAS DA PISTA SECRETA
+========================= -->
+
+<div id="bonus5" style="display:none;">
+
+
+<div id="perguntasBonus">
+
+
+<!-- PERGUNTA 1 -->
+
+<div class="questaoBonus" id="questao1">
+
+<h2>🔎 Evidência 1</h2>
+
+<p>
+A fórmula encontrada serve para calcular:
+</p>
+
+
+<button onclick="responderBonus(1,false)">
+Número de lados do polígono
+</button>
+
+
+<button onclick="responderBonus(1,true)">
+Número de diagonais do polígono
+</button>
+
+
+<button onclick="responderBonus(1,false)">
+Soma dos ângulos internos
+</button>
+
+
+<p id="retorno1"></p>
+
+
+</div>
+
+
+
+
+<!-- PERGUNTA 2 -->
+
+<div class="questaoBonus" id="questao2">
+
+<h2>🔎 Evidência 2</h2>
+
+
+<p>
+Para testar o caso base devemos usar o menor valor onde a fórmula é válida:
+</p>
+
+
+<button onclick="responderBonus(2,false)">
+n = 1
+</button>
+
+
+<button onclick="responderBonus(2,false)">
+n = 2
+</button>
+
+
+<button onclick="responderBonus(2,true)">
+n = 3
+</button>
+
+
+<p id="retorno2"></p>
+
+
+</div>
+
+
+
+
+<!-- PERGUNTA 3 -->
+
+<div class="questaoBonus" id="questao3">
+
+
+<h2>🔎 Evidência 3</h2>
+
+
+<p>
+No passo indutivo precisamos provar que:
+</p>
+
+
+<button onclick="responderBonus(3,false)">
+Só funciona para alguns casos
+</button>
+
+
+<button onclick="responderBonus(3,true)">
+Se vale para n, vale para n+1
+</button>
+
+
+<button onclick="responderBonus(3,false)">
+Não precisa testar novamente
+</button>
+
+
+<p id="retorno3"></p>
+
+
+</div>
+
+
+
+<div id="finalBonus" style="display:none;">
+
+
+<button onclick="fecharBonus()">
+
+📂 GUARDAR DOCUMENTO
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+<!-- =========================
+     RELATÓRIOS CASO 1
+========================= -->
+
+<div 
+id="relatorio1a"
+onclick="abrirFimCaso()"
+style="display:none;">
+</div>
+
+
+<div 
+id="relatorio1b"
+onclick="abrirFimCaso()"
+style="display:none;">
+</div>
+
+<!-- =========================
+     RELATÓRIO CASO 2
+========================= -->
+
+<div 
+id="relatorio2"
+onclick="iniciarVideoFinal()"
+style="display:none;">
+</div>
+
+<!-- =========================
+     VÍDEO FINAL + SENHA
+========================= -->
+
+<div id="videoHistoria" style="display:none;">
+
+
+<div id="areaSenhaFinal" style="display:none;">
+
+
+<input 
+id="senhaFinal"
+autocomplete="off"
+placeholder="Digite o código">
+
+
+<button onclick="testarSenhaFinal()">
+
+🔓 DESBLOQUEAR
+
+</button>
+
+
+
+<p id="erroSenhaFinal"></p>
+
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     DESAFIO POLÍGONOS
+========================= -->
+
+<div id="poligonos" style="display:none;">
+
+
+<div id="botoesPoligonos">
+
+<button onclick="errarPoligono()"></button>
+
+<button onclick="errarPoligono()"></button>
+
+<button onclick="acertarPoligono()"></button>
+
+<button onclick="errarPoligono()"></button>
+
+<button onclick="errarPoligono()"></button>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- FALHOU FINAL -->
+
+<div 
+id="falhou2"
+onclick="resetarJogo()"
+style="display:none;">
+</div>
+
+
+
+<!-- VÍDEO REVELAÇÃO -->
+
+<div
+id="videoRevelacao"
+onclick="passarVideoRevelacao()"
+style="display:none;">
+</div>
+
+
+
+<!-- FINAL -->
+
+<div
+id="fimJogo"
+onclick="voltarInvestigacoes()"
+style="display:none;">
+
+
+<div id="dadosFinais">
+
+<p id="nomeFinal"></p>
+
+<p id="pontosFinal"></p>
+
+</div>
+
+
+</div>
+<!-- FALHOU -->
+
+<div id="falhou1"
+onclick="resetarJogo()"
+style="display:none;">
+</div>
+
+
+<div id="falhou2"
+onclick="resetarJogo()"
+style="display:none;">
+</div>
+
+
+</div> <!-- FECHA O JOGO -->
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
