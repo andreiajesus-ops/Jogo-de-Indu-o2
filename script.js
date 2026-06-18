@@ -2813,34 +2813,58 @@ let tela=document.getElementById("investigacao2Intro");
 
 tela.style.display="block";
 
+
+// começa na missão 1
+
+let etapaMissao=1;
+
 tela.style.backgroundImage="url('missao1.png')";
 
 
-setTimeout(()=>{
+// agora passa somente no clique
+
+tela.onclick=function(){
+
+
+etapaMissao++;
+
+
+if(etapaMissao==2){
 
 tela.style.backgroundImage="url('missao2.png')";
 
-},2000);
+}
 
 
-setTimeout(()=>{
+else if(etapaMissao==3){
 
 tela.style.backgroundImage="url('missao3.png')";
 
-},4000);
+}
 
 
-setTimeout(()=>{
+else if(etapaMissao==4){
 
 tela.style.backgroundImage="url('missao4.png')";
 
+
 document.getElementById("testePrimos").style.display="block";
+
 
 let botao = document.getElementById("confirmarPrimos");
 
 botao.style.display="block";
 
-},6000);
+
+// tira o clique da tela para não atrapalhar os inputs
+
+tela.onclick=null;
+
+}
+
+
+}
+
 
 }function verificarPrimos(){
 
@@ -2965,7 +2989,7 @@ let intervaloMissao8;
 
 function iniciarTimerMissao8(){
 
-tempoMissao8 = 60;
+tempoMissao8 = 120;
 
 
 document.getElementById("timerMissao8").style.display="block";
@@ -2983,20 +3007,17 @@ document.getElementById("timerMissao8").innerHTML =
 "0"+minutos+":"+(segundos<10?"0":"")+segundos;
 
 
-
 tempoMissao8--;
 
 
 if(tempoMissao8 < 0){
 
-
 clearInterval(intervaloMissao8);
 
-
-abrirTempo1();
-
+abrirTempoEsgotado();
 
 }
+
 
 },1000);
 
