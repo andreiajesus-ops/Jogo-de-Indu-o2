@@ -2797,7 +2797,17 @@ document.getElementById("telaInvestigacoes").style.display="block";
 
 function abrirInvestigacao2(){
 
+// fecha fantasmas das outras investigações
+document.getElementById("fimJogo").style.display="none";
+document.getElementById("janelaJogo")?.remove();
+
+document.getElementById("caso1").style.display="none";
+document.getElementById("folha1").style.display="none";
+document.getElementById("bonus").style.display="none";
+
+
 document.getElementById("telaInvestigacoes").style.display="none";
+
 
 let tela=document.getElementById("investigacao2Intro");
 
@@ -2831,8 +2841,8 @@ let botao = document.getElementById("confirmarPrimos");
 botao.style.display="block";
 
 },6000);
-}
-function verificarPrimos(){
+
+}function verificarPrimos(){
 
 if(
 f1.value=="41" && p1.value=="SIM" &&
