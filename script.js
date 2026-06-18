@@ -2390,14 +2390,25 @@ return;
 investigacaoExtra = JSON.parse(dados);
 
 
+// fecha todas as telas principais
+
 document.getElementById("telaInvestigacoes").style.display="none";
 
+document.getElementById("investigacao2Intro").style.display="none";
 
-document.getElementById("extra1").style.display="block";
 
+// abre a tela do professor
+
+let tela = document.getElementById("extra1");
+
+tela.style.display="block";
+
+tela.style.backgroundImage="url('extra1.png')";
+
+
+// limpa dados
 
 document.getElementById("listaExtra").innerHTML="";
-
 
 document.getElementById("respostaExtra").value="";
 
@@ -2424,8 +2435,7 @@ botao.style.opacity="1";
 });
 
 
-}
-function modoProfessor(){
+}function modoProfessor(){
 
 let senha = prompt("Digite a senha do professor:");
 
@@ -2776,6 +2786,265 @@ function voltarInvestigacoes(){
 
 
 document.getElementById("fimJogo").style.display="none";
+
+document.getElementById("telaInvestigacoes").style.display="block";
+
+
+}
+// ============================
+// INVESTIGAÇÃO 2 - ABERTURA
+// ============================
+
+function abrirInvestigacao2(){
+
+document.getElementById("telaInvestigacoes").style.display="none";
+
+let tela=document.getElementById("investigacao2Intro");
+
+tela.style.display="block";
+
+tela.style.backgroundImage="url('missao1.png')";
+
+
+setTimeout(()=>{
+
+tela.style.backgroundImage="url('missao2.png')";
+
+},2000);
+
+
+setTimeout(()=>{
+
+tela.style.backgroundImage="url('missao3.png')";
+
+},4000);
+
+
+setTimeout(()=>{
+
+tela.style.backgroundImage="url('missao4.png')";
+
+document.getElementById("testePrimos").style.display="block";
+
+let botao = document.getElementById("confirmarPrimos");
+
+botao.style.display="block";
+
+},6000);
+}
+function verificarPrimos(){
+
+if(
+f1.value=="41" && p1.value=="SIM" &&
+f2.value=="43" && p2.value=="SIM" &&
+f3.value=="47" && p3.value=="SIM" &&
+f4.value=="53" && p4.value=="SIM" &&
+f5.value=="61" && p5.value=="SIM"
+){
+
+// tira missão 1
+document.getElementById("testePrimos").style.display="none";
+document.getElementById("confirmarPrimos").style.display="none";
+
+
+// abre missão 2
+document.getElementById("investigacao2Intro").style.backgroundImage=
+"url('missao5.png')";
+
+
+// mostra os quadradinhos da indução
+document.getElementById("ordemInducao").style.display="flex";
+
+
+// libera o botão da indução
+document.getElementById("confirmarInducao").style.display="block";
+
+
+
+}else{
+
+alert("⚠️ Investigador, verifique novamente os dados do arquivo!");
+
+}
+
+}
+function verificarInducao(){
+
+if(
+ord1.value=="4" &&
+ord2.value=="2" &&
+ord3.value=="3" &&
+ord4.value=="5" &&
+ord5.value=="1"
+){
+
+document.getElementById("ordemInducao").style.display="none";
+
+document.getElementById("confirmarInducao").style.display="none";
+
+
+document.getElementById("investigacao2Intro").style.backgroundImage =
+"url('missao6.png')";
+
+
+// espera um pouco antes de liberar o clique
+setTimeout(()=>{
+
+document.getElementById("investigacao2Intro").onclick = abrirMissao7;
+
+},1500);
+}else{
+
+alert("⚠️ Revise a ordem do passo indutivo, investigador!");
+
+}
+
+}
+function abrirMissao7(){
+
+document.getElementById("investigacao2Intro").style.backgroundImage =
+"url('missao7.png')";
+
+
+document.getElementById("investigacao2Intro").onclick = ()=>{
+
+document.getElementById("investigacao2Intro").style.backgroundImage =
+"url('missao8.png')";
+
+
+document.getElementById("desbloquearSistema").style.display="block";
+
+iniciarTimerMissao8();
+
+
+document.getElementById("investigacao2Intro").onclick=null;
+
+}
+
+}
+function verificarSistema(){
+
+let resposta = document.getElementById("codigoSistema").value;
+
+resposta = resposta.replace(/\s/g,"").toLowerCase();
+
+
+if(resposta=="2n+2" || resposta=="2*n+2"){
+
+alert("🔓 Sistema reiniciado!\n\nNovos arquivos serão liberados em breve.\n\n🚧 Fase em construção.");
+
+
+document.getElementById("desbloquearSistema").style.display="none";
+
+document.getElementById("investigacao2Intro").style.display="none";
+
+document.getElementById("telaInvestigacoes").style.display="block";
+
+
+}else{
+
+
+alert("⚠️ Código incorreto!\n\nAnalise novamente o padrão encontrado.");
+
+}
+
+}
+let tempoMissao8;
+let intervaloMissao8;
+
+
+function iniciarTimerMissao8(){
+
+tempoMissao8 = 60;
+
+
+document.getElementById("timerMissao8").style.display="block";
+
+
+intervaloMissao8=setInterval(()=>{
+
+
+let minutos = Math.floor(tempoMissao8/60);
+
+let segundos = tempoMissao8%60;
+
+
+document.getElementById("timerMissao8").innerHTML =
+"0"+minutos+":"+(segundos<10?"0":"")+segundos;
+
+
+
+tempoMissao8--;
+
+
+if(tempoMissao8 < 0){
+
+
+clearInterval(intervaloMissao8);
+
+
+abrirTempo1();
+
+
+}
+
+},1000);
+
+
+}
+// ============================
+// TEMPO ESGOTADO MISSÃO 8
+// ============================
+
+
+function abrirTempo1(){
+
+
+document.getElementById("desbloquearSistema").style.display="none";
+
+document.getElementById("timerMissao8").style.display="none";
+
+
+let tela=document.getElementById("investigacao2Intro");
+
+
+tela.style.backgroundImage="url('tempo1.png')";
+
+
+tela.onclick=abrirTempo2;
+
+
+}
+
+
+
+function abrirTempo2(){
+
+
+let tela=document.getElementById("investigacao2Intro");
+
+
+tela.style.backgroundImage="url('tempo2.png')";
+
+
+tela.onclick=voltarInvestigacoes;
+
+
+}
+
+
+
+function voltarInvestigacoes(){
+
+
+let tela=document.getElementById("investigacao2Intro");
+
+
+tela.onclick=null;
+
+
+tela.style.display="none";
+
 
 document.getElementById("telaInvestigacoes").style.display="block";
 

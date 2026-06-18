@@ -141,7 +141,7 @@ TELA DAS INVESTIGAÇÕES
 
 <button id="btnInv1" onclick="abrirCaso1()"></button>
 
-<button id="btnInv2" onclick="emConstrucao()"></button>
+<button id="btnInv2" onclick="abrirInvestigacao2()"></button>
 
 <button id="btnInv3" onclick="emConstrucao()"></button>
 
@@ -1037,6 +1037,134 @@ onclick="resetarJogo()"
 style="display:none;">
 </div>
 
+<!-- =========================
+ INVESTIGAÇÃO 2 - INTRODUÇÃO
+========================= -->
+
+<div id="investigacao2Intro" style="display:none;">
+
+
+<!-- TESTE DA FÓRMULA DOS PRIMOS -->
+
+<div id="testePrimos" style="display:none">
+
+<div class="linhaTeste">
+n = 1 ➜ 
+<input id="f1">
+
+<select id="p1">
+<option></option>
+<option>SIM</option>
+<option>NÃO</option>
+</select>
+</div>
+
+
+<div class="linhaTeste">
+n = 2 ➜ 
+<input id="f2">
+
+<select id="p2">
+<option></option>
+<option>SIM</option>
+<option>NÃO</option>
+</select>
+</div>
+
+
+<div class="linhaTeste">
+n = 3 ➜ 
+<input id="f3">
+
+<select id="p3">
+<option></option>
+<option>SIM</option>
+<option>NÃO</option>
+</select>
+</div>
+
+
+<div class="linhaTeste">
+n = 4 ➜ 
+<input id="f4">
+
+<select id="p4">
+<option></option>
+<option>SIM</option>
+<option>NÃO</option>
+</select>
+</div>
+
+
+<div class="linhaTeste">
+n = 5 ➜ 
+<input id="f5">
+
+<select id="p5">
+<option></option>
+<option>SIM</option>
+<option>NÃO</option>
+</select>
+</div>
+
+
+</div> <!-- FECHA testePrimos -->
+
+
+<!-- botão invisível em cima do CASO CONFIRMADO da imagem -->
+<button id="confirmarPrimos" 
+style="display:none"
+onclick="verificarPrimos()"></button>
+
+<!-- ORDEM DO PASSO INDUTIVO -->
+
+<div id="ordemInducao" style="display:none">
+
+<input id="ord1" maxlength="1">
+<input id="ord2" maxlength="1">
+<input id="ord3" maxlength="1">
+<input id="ord4" maxlength="1">
+<input id="ord5" maxlength="1">
+
+</div>
+
+
+<button id="confirmarInducao" 
+style="display:none"
+onclick="verificarInducao()"></button>
+
+<button 
+id="botaoMissao6"
+style="display:none"
+onclick="abrirMissao7()">
+</button>
+
+
+<button 
+id="botaoMissao7"
+style="display:none"
+onclick="finalizarInvestigacao2()">
+</button>
+
+<!-- MISSÃO 8 - DESBLOQUEAR SISTEMA -->
+
+<div id="desbloquearSistema" style="display:none">
+
+<input id="codigoSistema">
+
+<button id="confirmarSistema"
+onclick="verificarSistema()"></button>
+
+</div>
+
+<!-- TIMER MISSÃO 8 -->
+
+<div id="timerMissao8">
+01:00
+</div>
+
+
+</div> <!-- FECHA investigacao2Intro -->
 
 </div> <!-- FECHA O JOGO -->
 

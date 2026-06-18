@@ -2198,7 +2198,7 @@ height:300px;
 
 #btnInv2{
 
-left:700px;
+left:550px;
 top:300px;
 
 width:300px;
@@ -2226,7 +2226,7 @@ height:300px;
 
 position:absolute;
 
-left:1350px;
+left:1450px;
 top:300px;
 
 width:300px;
@@ -2244,8 +2244,8 @@ cursor:pointer;
 
 #btnProfessor{
 
-left:430px;
-bottom:110px;
+left:630px;
+bottom:150px;
 
 width:520px;
 height:100px;
@@ -2652,7 +2652,7 @@ text-align:center;
 
 position:absolute;
 
-right:480px;
+right:350px;
 top:430px;
 
 width:170px;
@@ -2672,7 +2672,7 @@ cursor:pointer;
 
 position:absolute;
 
-left:820px;
+left:950px;
 bottom:80px;
 
 width:430px;
@@ -2685,5 +2685,266 @@ border:none;
 font-size:0;
 
 cursor:pointer;
+
+}
+/* =========================
+ INVESTIGAÇÃO 2 INTRO
+========================= */
+
+#investigacao2Intro{
+
+width:100vw;
+height:100vh;
+
+background-size:contain;
+background-repeat:no-repeat;
+background-position:center;
+
+position:relative;
+
+background-color:black;
+
+overflow:hidden;
+
+z-index:1;
+
+}
+
+#testePrimos{
+
+position:absolute;
+
+left:560px;
+top:430px;
+
+width:700px;
+
+font-size:30px;
+
+color:white;
+
+z-index:999999999;
+
+}
+
+.linhaTeste{
+
+display:flex;
+
+gap:35px;
+
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+.linhaTeste input{
+
+width:140px;
+height:40px;
+
+font-size:28px;
+
+text-align:center;
+
+background:#061313;
+
+color:white;
+
+border:2px solid #00dede;
+
+}
+
+.linhaTeste select{
+
+width:130px;
+height:45px;
+
+font-size:22px;
+
+background:#061313;
+
+color:white;
+
+}
+
+
+#confirmarPrimos{
+
+position:absolute;
+
+left:600px;
+top:900px;
+
+width:520px;
+height:100px;
+
+background:transparent;
+
+border:none;
+
+font-size:0;
+
+color:transparent;
+
+z-index:999999999;
+
+cursor:pointer;
+
+}
+#testePrimos input,
+#testePrimos select{
+
+position:relative;
+
+z-index:999999999;
+
+}
+#ordemInducao{
+
+position:absolute;
+
+left:430px;
+top:310px;
+
+display:flex;
+flex-direction:column;
+
+gap:67px;
+
+z-index:999999999;
+
+}
+
+
+#ordemInducao input{
+
+width:65px;
+height:65px;
+
+background:transparent;
+
+border:2px solid white;
+
+font-size:40px;
+color:white;
+
+text-align:center;
+
+}
+
+
+#confirmarInducao{
+
+position:absolute;
+
+left:700px;
+top:900px;
+
+width:550px;
+height:100px;
+
+background:transparent;
+border:none;
+
+cursor:pointer;
+
+z-index:999999999;
+
+}
+#botaoMissao6,
+#botaoMissao7{
+
+position:fixed;
+
+left:0;
+top:0;
+
+width:100vw;
+height:100vh;
+
+background:red;
+opacity:0.3;
+
+border:none;
+
+z-index:2147483647;
+
+cursor:pointer;
+
+}
+/* MISSÃO 8 */
+
+#desbloquearSistema{
+position:absolute;
+left:0;
+top:0;
+z-index:999999999;
+}
+
+
+#codigoSistema{
+
+position:absolute;
+
+left:620px;
+top:700px;
+
+width:500px;
+height:60px;
+
+font-size:35px;
+text-align:center;
+
+background:transparent;
+
+color:#00ff66;
+
+border:none;
+outline:none;
+
+}
+
+
+#confirmarSistema{
+
+position:absolute;
+
+left:520px;
+top:780px;
+
+width:600px;
+height:80px;
+
+background:transparent;
+
+border:none;
+
+cursor:pointer;
+
+}
+/* TIMER MISSÃO 8 */
+
+#timerMissao8{
+
+display:none;
+
+position:absolute;
+
+right:120px;
+top:130px;
+
+font-size:70px;
+
+color:#00ff66;
+
+font-family:monospace;
+
+font-weight:bold;
+
+text-shadow:0 0 20px #00ff66;
+
+z-index:999999999;
 
 }
