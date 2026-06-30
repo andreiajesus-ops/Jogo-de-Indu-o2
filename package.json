@@ -1,16 +1,32 @@
 {
-  "name": "investigacao_node_teste",
+  "name": "investigacao_matematica",
   "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
+  "description": "Jogo educativo de investigação matemática.",
+  "author": "Jackson Barreiros",
+  "main": "main.js",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron .",
+    "dist": "electron-builder"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+
+  "build": {
+    "appId": "com.jackson.investigacao",
+    "productName": "Investigação Matemática",
+    "icon": "icone.ico",
+
+    "win": {
+      "target": "portable",
+      "icon": "icone.ico"
+    }
+  },
+
   "dependencies": {
     "express": "^5.2.1"
+  },
+
+  "devDependencies": {
+    "electron": "^42.5.0",
+    "electron-builder": "^24.13.3"
   }
 }

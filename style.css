@@ -85,6 +85,7 @@ box-shadow:0 0 25px black;
 
 
 cursor:pointer;
+z-index:10;
 
 }
 
@@ -1119,47 +1120,12 @@ background-repeat:no-repeat;
 background-color:black;
 
 }
-#menuDicas2{
-
-position:absolute;
-
-left:80px;
-top:160px;
-
-display:flex;
-
-flex-direction:column;
-
-gap:10px;
-
-}
-
-
-#menuDicas2 button{
-
-width:50px;
-height:50px;
-
-border-radius:50%;
-
-background:#d8bd35;
-
-font-size:22px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-}
-
-
-
 #areaDicas2{
 
 position:absolute;
 
-left:880px;
-top:90px;
+left:850px;
+top:170px;
 
 transform:none;
 
@@ -1170,6 +1136,44 @@ font-size:20px;
 color:black;
 
 }
+
+#menuDicas2{
+
+position:absolute;
+
+left:80px;
+top:250px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+#menuDicas2 button{
+
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+background:#d8bd35;
+
+border:3px solid #5b3b16;
+
+font-size:25px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:0 0 15px black;
+
+}
+
+
 #areaDicas2 h1{
 
 color:#6b0000;
@@ -1938,7 +1942,7 @@ opacity:1;
 
 position:absolute;
 
-bottom:400px;   /* sobe a caixa */
+bottom:320pxpx;   /* sobe a caixa */
 left:55%;
 
 transform:translateX(-50%);
@@ -2041,7 +2045,7 @@ cursor:pointer;
 
 position:absolute;
 
-bottom:260px;
+bottom:200px;
 left:50%;
 
 transform:translateX(-50%);
@@ -2117,27 +2121,43 @@ position:relative;
 
 
 
-#dadosFinais{
+#nomeEquipeFinal{
 
 position:absolute;
 
-left:60%;
-top:540px;
+left:960px;
+top:560px;
 
-transform:translateX(-50%);
+width:720px;
 
 text-align:center;
 
-font-size:45px;
+font-size:42px;
 
 font-weight:bold;
 
 color:#d6bd32;
 
-line-height:2.2;   /* separa nome e pontos */
-
 }
 
+#pontuacaoEquipeFinal{
+
+position:absolute;
+
+left:960px;
+top:725px;
+
+width:720px;
+
+text-align:center;
+
+font-size:42px;
+
+font-weight:bold;
+
+color:#d6bd32;
+
+}
 #fimJogo{
 
 background-image:url("fim.png");
@@ -2774,8 +2794,9 @@ color:white;
 
 position:absolute;
 
-left:600px;
-top:900px;
+left:640px;
+
+top:790px;
 
 width:520px;
 height:100px;
@@ -2806,7 +2827,7 @@ z-index:999999999;
 position:absolute;
 
 left:430px;
-top:310px;
+top:320px;
 
 display:flex;
 flex-direction:column;
@@ -2817,17 +2838,20 @@ z-index:999999999;
 
 }
 
-
 #ordemInducao input{
 
-width:65px;
-height:65px;
+width:85px;
+height:85px;
 
 background:transparent;
 
-border:2px solid white;
+border:3px solid white;
 
-font-size:40px;
+border-radius:8px;
+
+font-size:52px;
+font-weight:bold;
+
 color:white;
 
 text-align:center;
@@ -2840,7 +2864,7 @@ text-align:center;
 position:absolute;
 
 left:700px;
-top:900px;
+top:960px;
 
 width:550px;
 height:100px;
@@ -2864,17 +2888,15 @@ top:0;
 width:100vw;
 height:100vh;
 
-background:red;
-opacity:0.3;
+background:transparent;
 
 border:none;
 
-z-index:2147483647;
+z-index:20;
 
 cursor:pointer;
 
-}
-/* MISSÃO 8 */
+}/* MISSÃO 8 */
 
 #desbloquearSistema{
 position:absolute;
@@ -2889,7 +2911,7 @@ z-index:999999999;
 position:absolute;
 
 left:620px;
-top:700px;
+top:750px;
 
 width:500px;
 height:60px;
@@ -2912,7 +2934,7 @@ outline:none;
 position:absolute;
 
 left:520px;
-top:780px;
+top:830px;
 
 width:600px;
 height:80px;
@@ -2947,4 +2969,1973 @@ text-shadow:0 0 20px #00ff66;
 
 z-index:999999999;
 
+}
+/* =========================
+   CARTAS INVESTIGAÇÃO 3
+========================= */
+
+#carta1,
+#carta2,
+#carta3{
+
+width:100vw;
+height:100vh;
+
+background-size:contain;
+background-repeat:no-repeat;
+background-position:center;
+
+background-color:black;
+
+cursor:pointer;
+
+}
+
+
+#carta1{
+
+background-image:url("carta1.png");
+
+}
+
+
+#carta2{
+
+background-image:url("carta2.png");
+
+}
+
+
+#carta3{
+
+background-image:url("carta3.png");
+
+}
+
+/* =====================
+   MISSÃO 9
+===================== */
+
+#missao9Teste{
+
+position:absolute;
+
+left:50%;
+top:64%;
+
+transform:translate(-50%,-50%);
+
+width:930px;
+
+background:rgba(0,0,0,.75);
+
+border:3px solid #00ffff;
+
+border-radius:20px;
+
+padding:40px 45px;
+
+color:white;
+
+text-align:center;
+
+z-index:50;
+
+}
+
+.testeLinha{
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+gap:28px;
+
+font-size:34px;
+
+margin:42px 0;
+
+}
+
+.testeLinha input{
+
+width:170px;
+height:55px;
+
+font-size:34px;
+
+text-align:center;
+
+}
+
+.testeLinha button{
+
+font-size:26px;
+
+padding:12px 28px;
+
+}
+
+#prosseguirMissao9{
+
+position:relative;
+
+font-size:28px;
+
+padding:18px 45px;
+
+margin-top:35px;
+
+}
+
+/* GARANTIR TELA INICIAL CLICÁVEL */
+
+#telaInicial{
+
+position:relative;
+
+z-index:1000;
+
+}
+
+
+#botaoNova{
+
+z-index:2000;
+
+pointer-events:auto;
+
+}
+#missao10Teste{
+
+position:absolute;
+
+left:430px;
+top:570px;
+
+width:1200px;
+
+display:flex;
+
+gap:30px;
+
+z-index:999999999;
+
+}
+
+.pergunta10{
+
+width:330px;
+
+padding:15px;
+
+color:#00ffff;
+
+font-size:18px;
+
+}
+
+.pergunta10 h3{
+
+font-size:22px;
+
+}
+
+
+.pergunta10 label{
+
+display:block;
+
+margin-top:18px;
+
+}
+
+
+#encerrarMissao10{
+
+position:absolute;
+
+left:100px;
+top:325px;
+
+width:760px;
+height:115px;
+
+background:transparent;
+border:none;
+
+cursor:pointer;
+
+font-size:28px;
+
+z-index:100;
+
+}.selecionado{
+
+background:#00ff66 !important;
+
+color:black !important;
+
+border:3px solid white !important;
+
+box-shadow:0 0 20px #00ff66;
+
+}
+.testeLinha span{
+
+color:white;
+
+font-size:30px;
+
+font-weight:bold;
+
+}
+
+.testeLinha input{
+
+display:inline-block;
+
+width:150px;
+
+height:45px;
+
+font-size:28px;
+
+text-align:center;
+
+}
+/* =========================
+   MISSÃO 12 - REANÁLISE
+========================= */
+
+#missao12Perguntas{
+
+position:absolute;
+
+left:380px;
+top:305px;
+
+width:1120px;
+height:560px;
+
+display:grid;
+
+grid-template-columns:540px 540px;
+
+grid-auto-rows:210px;
+
+justify-content:center;
+align-content:start;
+
+gap:18px 25px;
+
+z-index:999;
+
+color:#2b1600;
+
+font-family:Georgia,serif;
+
+}
+
+.pergunta12{
+
+background:rgba(255,248,235,.60);
+
+border:2px solid rgba(90,50,20,.35);
+
+border-radius:14px;
+
+padding:14px 18px;
+
+font-size:20px;
+
+box-shadow:0 0 8px rgba(0,0,0,.15);
+
+overflow:hidden;
+
+}
+
+.pergunta12 h3{
+
+font-size:24px;
+
+color:#7b1e12;
+
+margin-bottom:12px;
+
+}
+
+.pergunta12 label{
+
+display:block;
+
+margin:10px 0;
+
+line-height:1.2;
+
+cursor:pointer;
+
+}
+
+.pergunta12 input{
+
+transform:scale(1.4);
+
+margin-right:10px;
+
+}
+
+#concluirMissao12{
+
+position:absolute;
+
+left:420px;
+bottom:20px;
+
+width:420px;
+height:70px;
+
+background:#9b2d1f;
+
+color:white;
+
+border:3px solid #5b160f;
+
+border-radius:18px;
+
+font-size:27px;
+
+font-weight:bold;
+
+font-family:Georgia,serif;
+
+cursor:pointer;
+
+box-shadow:0 0 18px rgba(0,0,0,0.45);
+
+}
+
+#concluirMissao12:hover{
+
+transform:scale(1.04);
+
+}
+/* =========================
+   MISSÃO 14 - PROVA DO PADRÃO
+========================= */
+
+#missao14Perguntas{
+
+position:absolute;
+
+left:190px;
+top:365px;
+
+width:1500px;
+height:630px;
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px 35px;
+
+z-index:100;
+
+font-family:Georgia,serif;
+color:#0b3015;
+
+}
+
+.questao14{
+
+background:rgba(255,255,245,0.78);
+
+border:2px solid rgba(20,90,35,0.35);
+
+border-radius:15px;
+
+padding:15px 20px;
+
+font-size:21px;
+
+box-shadow:0 0 8px rgba(0,0,0,0.15);
+
+}
+
+.questao14 h3{
+
+font-size:23px;
+
+color:#0f4a21;
+
+margin-bottom:10px;
+
+}
+
+.questao14 label{
+
+display:block;
+
+margin:8px 0;
+
+line-height:1.2;
+
+cursor:pointer;
+
+}
+
+.questao14 input{
+
+transform:scale(1.35);
+
+margin-right:10px;
+
+}
+
+#validarMissao14{
+
+position:absolute;
+
+left:530px;
+bottom:-43px;
+
+width:450px;
+height:65px;
+
+background:#0f4a21;
+
+color:white;
+
+border:3px solid #082b12;
+
+border-radius:18px;
+
+font-size:27px;
+
+font-weight:bold;
+
+font-family:Georgia,serif;
+
+cursor:pointer;
+
+box-shadow:0 0 15px rgba(0,80,20,0.55);
+
+}
+
+#validarMissao14:hover{
+
+transform:scale(1.04);
+
+}
+#resultadoMissao17{
+
+position:absolute;
+
+left:560px;
+top:330px;
+
+width:760px;
+height:300px;
+
+z-index:200;
+
+text-align:center;
+
+font-family:Georgia,serif;
+
+color:#9cff5a;
+
+text-shadow:0 0 12px #4cff00;
+
+}
+
+#resultadoMissao17 h1{
+
+font-size:58px;
+
+margin-bottom:25px;
+
+}
+
+#resultadoMissao17 h2{
+
+font-size:42px;
+
+margin-bottom:20px;
+
+}
+
+#resultadoMissao17 h3{
+
+font-size:36px;
+
+margin-bottom:35px;
+
+}
+
+#resultadoMissao17 button{
+
+width:360px;
+height:70px;
+
+font-size:30px;
+
+font-weight:bold;
+
+background:#1f3d14;
+
+color:#9cff5a;
+
+border:3px solid #9cff5a;
+
+border-radius:15px;
+
+cursor:pointer;
+
+box-shadow:0 0 20px #4cff00;
+
+}
+/* =========================
+   INVESTIGAÇÃO 3 - CARTAS E SALA
+========================= */
+
+#carta1,
+#carta2,
+#carta3,
+#carta4,
+#salaPistas{
+
+width:100vw;
+height:100vh;
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+position:relative;
+
+cursor:pointer;
+
+}
+
+#carta1{
+background-image:url("carta1.png");
+}
+
+#carta2{
+background-image:url("carta2.png");
+}
+
+#carta3{
+background-image:url("carta3.png");
+}
+
+#carta4{
+background-image:url("carta4.png");
+}
+
+#salaPistas{
+background-image:url("pista.png");
+cursor:default;
+}
+/* =========================
+   INVESTIGAÇÃO 3 - PISTAS VISUAIS
+========================= */
+
+#pistaVisual{
+
+width:100vw;
+height:100vh;
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+position:relative;
+
+cursor:pointer;
+
+z-index:300;
+
+}
+
+#botoesSalaPistas button{
+
+position:absolute;
+
+background:rgba(255,0,0,0); /* temporariamente pode trocar para rgba(255,0,0,.35) */
+border:none;
+
+cursor:pointer;
+
+z-index:250;
+
+}
+
+/* 1 - QUADRO */
+#btnPista1{
+
+left:400px;
+top:95px;
+
+width:210px;
+height:120px;
+
+}
+
+/* 2 - PAPEL AMASSADO NO CHÃO */
+#btnPista2{
+
+left:850px;
+top:820px;
+
+width:230px;
+height:110px;
+
+}
+
+/* 3 - LIVRO ABERTO NA MESA */
+#btnPista3{
+
+left:150px;
+top:680px;
+
+width:220px;
+height:110px;
+
+}
+
+/* 6 - ANOTAÇÕES ABAIXO DO ABAJUR */
+#btnPista6{
+
+left:300px;
+top:520px;
+
+width:300px;
+height:120px;
+
+}
+
+/* 8 - FOTOS E ANOTAÇÕES */
+#btnPista8{
+
+left:1030px;
+top:190px;
+
+width:210px;
+height:140px;
+
+}
+
+/* 9 - FOTO NO CHÃO */
+#btnPista9{
+
+left:1580px;
+top:870px;
+
+width:230px;
+height:120px;
+
+}
+/* =========================
+   INVESTIGAÇÃO 3 - PISTA 5
+========================= */
+
+#pista5Tela,
+#pista55Tela{
+
+width:100vw;
+height:100vh;
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+position:relative;
+
+}
+
+#pista5Tela{
+background-image:url("pista5.png");
+}
+
+#pista55Tela{
+background-image:url("pista55.png");
+cursor:pointer;
+}
+
+#codigoGaveta1,
+#codigoGaveta2,
+#codigoGaveta3,
+#codigoGaveta4{
+
+position:absolute;
+
+top:495px;          /* sobe um pouquinho */
+
+width:185px;        /* antes 165 */
+height:200px;       /* antes 175 */
+
+background:rgba(0,0,0,0.65);
+
+border:3px solid #d4af37;
+border-radius:18px;
+
+font-size:82px;
+
+font-weight:bold;
+color:#f5d76e;
+text-align:center;
+
+z-index:400;
+
+}
+
+#codigoGaveta1{ left:455px; }
+
+#codigoGaveta2{ left:730px; }
+
+#codigoGaveta3{ left:1005px; }
+
+#codigoGaveta4{ left:1280px; }
+
+#confirmarGaveta{
+
+position:absolute;
+
+left:770px;
+top:760px;
+
+width:180px;
+height:70px;
+
+background:#5b3b17;
+
+color:#f5d76e;
+
+border:3px solid #d4af37;
+
+border-radius:15px;
+
+font-size:30px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:420;
+
+transition:0.2s;
+
+}
+
+#confirmarGaveta:hover{
+
+background:#745020;
+
+transform:scale(1.05);
+
+}
+
+#voltarGaveta{
+
+position:absolute;
+
+left:80px;
+bottom:70px;
+
+width:220px;
+height:65px;
+
+background:#3b2a16;
+
+color:#f5d76e;
+
+border:3px solid #d4af37;
+
+border-radius:15px;
+
+font-size:26px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:430;
+
+}
+
+#dicaGaveta{
+
+position:absolute;
+
+right:80px;
+bottom:70px;
+
+width:220px;
+height:65px;
+
+background:#3b2a16;
+
+color:#f5d76e;
+
+border:3px solid #d4af37;
+
+border-radius:15px;
+
+font-size:26px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:430;
+
+}
+/* 5 - GAVETA TRANCADA */
+#btnPista5{
+
+position:absolute;
+
+left:1300px;
+top:520px;
+
+width:220px;
+height:130px;
+
+background:rgba(255,0,0,.35);
+border:2px solid red;
+
+cursor:pointer;
+
+z-index:999999;
+
+}
+/* =========================
+   INVESTIGAÇÃO 3 - PISTA 7
+========================= */
+
+#pista7Tela,
+#pista77Tela,
+#pista777Tela{
+
+width:100vw;
+height:100vh;
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+position:relative;
+
+}
+
+#pista7Tela{
+background-image:url("pista7.png");
+cursor:pointer;
+}
+
+#pista77Tela{
+background-image:url("pista77.png");
+}
+
+#pista777Tela{
+background-image:url("pista777.png");
+cursor:pointer;
+}
+
+#codigoCofre{
+
+position:absolute;
+
+left:760px;
+top:470px;
+
+width:390px;
+height:150px;
+
+background:rgba(0,0,0,0.75);
+
+border:3px solid #d4af37;
+border-radius:18px;
+
+font-size:90px;
+font-weight:bold;
+
+color:#f5d76e;
+
+text-align:center;
+
+z-index:500;
+
+}
+
+#confirmarCofre{
+
+position:absolute;
+
+left:870px;
+top:700px;
+
+width:180px;
+height:70px;
+
+background:#5b3b17;
+
+color:#f5d76e;
+
+border:3px solid #d4af37;
+
+border-radius:15px;
+
+font-size:30px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:520;
+
+transition:0.2s;
+
+}
+
+#confirmarCofre:hover{
+
+background:#745020;
+
+transform:scale(1.05);
+
+}
+
+#voltarCofre{
+
+position:absolute;
+
+left:80px;
+bottom:70px;
+
+width:220px;
+height:65px;
+
+background:#3b2a16;
+
+color:#f5d76e;
+
+border:3px solid #d4af37;
+border-radius:15px;
+
+font-size:26px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:530;
+
+}
+
+#dicaCofre{
+
+position:absolute;
+
+right:80px;
+bottom:70px;
+
+width:220px;
+height:65px;
+
+background:#3b2a16;
+
+color:#f5d76e;
+
+border:3px solid #d4af37;
+border-radius:15px;
+
+font-size:26px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:530;
+
+}
+
+/* 7 - COFRE NA PAREDE */
+#btnPista7{
+
+position:absolute;
+
+left:1390px;
+top:210px;
+
+width:250px;
+height:180px;
+
+background:transparent;
+border:none;
+
+cursor:pointer;
+
+z-index:999999;
+
+}
+/* =========================
+   INVESTIGAÇÃO 3 - PISTA 4
+========================= */
+
+#pista4Tela,
+#pista44Tela,
+#pista444Tela,
+#fibonacci1Tela,
+#fibonacci2Tela,
+#fibonacci3Tela,
+#final1Tela,
+#final2Tela,
+#final3Tela,
+#final4Tela,
+#final5Tela{
+
+width:100vw;
+height:100vh;
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+position:relative;
+
+}
+
+#pista4Tela{
+background-image:url("pista4.png");
+}
+
+#pista44Tela{
+background-image:url("pista44.png");
+cursor:pointer;
+}
+
+#pista444Tela{
+background-image:url("pista444.png");
+cursor:pointer;
+}
+
+#fibonacci1Tela{
+background-image:url("fibonacci.png");
+cursor:pointer;
+}
+
+#fibonacci2Tela{
+background-image:url("fibonacci2.png");
+}
+
+#fibonacci3Tela{
+background-image:url("fibonacci3.png");
+}
+
+#final1Tela{
+background-image:url("final1.png");
+cursor:pointer;
+}
+
+#final2Tela{
+background-image:url("final2.png");
+cursor:pointer;
+}
+
+#final3Tela{
+background-image:url("final3.png");
+cursor:pointer;
+}
+
+#final4Tela{
+background-image:url("final4.png");
+cursor:pointer;
+}
+
+#final5Tela{
+background-image:url("final5.png");
+}
+
+/* botão computador na sala */
+#btnPista4{
+
+position:absolute;
+
+left:920px;
+top:505px;
+
+width:220px;
+height:140px;
+
+background:transparent;
+border:none;
+
+cursor:pointer;
+
+z-index:999999;
+
+}
+
+/* código rastreador */
+#codigoRastreador{
+
+position:absolute;
+
+left:690px;
+top:515px;
+
+width:520px;
+height:80px;
+
+background:rgba(0,0,0,.75);
+
+border:3px solid #00ff66;
+border-radius:15px;
+
+font-size:50px;
+font-weight:bold;
+
+color:#00ff66;
+
+text-align:center;
+
+z-index:500;
+
+text-transform:uppercase;
+
+}
+
+#confirmarRastreador{
+
+position:absolute;
+
+left:860px;
+top:630px;
+
+width:180px;
+height:70px;
+
+background:#5b3b17;
+
+color:#f5d76e;
+
+border:3px solid #d4af37;
+
+border-radius:15px;
+
+font-size:30px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:520;
+
+transition:0.2s;
+
+}
+
+#confirmarRastreador:hover{
+
+background:#745020;
+
+transform:scale(1.05);
+
+}
+#voltarRastreador{
+
+position:absolute;
+
+left:80px;
+bottom:70px;
+
+width:220px;
+height:65px;
+
+background:#111;
+
+color:#00ff66;
+
+border:3px solid #00ff66;
+border-radius:15px;
+
+font-size:26px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:530;
+
+}
+
+/* fibonacci 2 */
+
+#perguntasFibonacci2{
+
+position:absolute;
+
+right:120px;
+top:120px;
+
+width:600px;
+
+color:#00ff66;
+
+font-family:Georgia,serif;
+
+font-size:24px;
+
+z-index:600;
+
+}
+
+#perguntasFibonacci2 h2{
+
+font-size:28px;
+
+margin:25px 0 15px 0;
+
+}
+
+#fibOrdem{
+
+width:520px;
+height:60px;
+
+font-size:32px;
+
+text-align:center;
+
+background:rgba(0,0,0,.75);
+
+border:3px solid #00ff66;
+border-radius:12px;
+
+color:#00ff66;
+
+}
+
+#perguntasFibonacci2 label{
+
+display:block;
+
+font-size:26px;
+
+margin:15px 0;
+
+}
+
+#validarFibonacci2{
+
+margin-top:30px;
+
+width:420px;
+height:70px;
+
+background:#0f4a21;
+
+color:white;
+
+border:3px solid #00ff66;
+border-radius:18px;
+
+font-size:26px;
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+/* fibonacci 3 */
+
+#numeroForaPadrao{
+
+position:absolute;
+
+left:640px;
+top:430px;
+
+width:520px;
+height:85px;
+
+background:rgba(0,0,0,.75);
+
+border:3px solid #00ff66;
+border-radius:15px;
+
+font-size:55px;
+font-weight:bold;
+
+color:#00ff66;
+
+text-align:center;
+
+z-index:600;
+
+}
+
+#validarFibonacci3{
+
+position:absolute;
+
+left:670px;
+top:550px;
+
+width:460px;
+height:75px;
+
+background:#0f4a21;
+
+color:white;
+
+border:3px solid #00ff66;
+border-radius:18px;
+
+font-size:26px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:610;
+
+}
+
+#dicaFibonacci3{
+
+position:absolute;
+
+right:80px;
+bottom:70px;
+
+width:220px;
+height:65px;
+
+background:#111;
+
+color:#00ff66;
+
+border:3px solid #00ff66;
+border-radius:15px;
+
+font-size:26px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:620;
+
+}
+
+/* final estrelas */
+
+#resultadoEstrelas{
+
+position:absolute;
+
+left:50%;
+top:430px;
+
+transform:translateX(-50%);
+
+width:900px;
+
+text-align:center;
+
+font-size:48px;
+font-weight:bold;
+
+color:#d4af37;
+
+line-height:1.8;
+
+text-shadow:0 0 15px black;
+
+}
+
+#voltarFinalInvestigacoes{
+
+position:absolute;
+
+left:50%;
+bottom:90px;
+
+transform:translateX(-50%);
+
+width:420px;
+height:75px;
+
+background:#d4af37;
+
+border:3px solid #5b3b16;
+border-radius:18px;
+
+font-size:26px;
+font-weight:bold;
+
+cursor:pointer;
+
+}
+#textoRastreador{
+
+position:absolute;
+
+left:50%;
+top:120px;
+
+transform:translateX(-50%);
+
+width:900px;
+
+text-align:center;
+
+color:#00ff66;
+
+font-family:Arial;
+
+z-index:9999;
+
+text-shadow:0 0 10px #00ff66;
+
+}
+
+#textoRastreador h1{
+
+font-size:46px;
+margin-bottom:20px;
+
+}
+
+#textoRastreador p{
+
+font-size:28px;
+line-height:1.5;
+margin:8px 0;
+
+}
+#perguntasFibonacci3{
+position:absolute;
+
+left:70px;
+top:55px;
+
+width:900px;
+
+color:#00ff66;
+font-family:Georgia,serif;
+
+z-index:600;
+}
+
+#perguntasFibonacci3 h2{
+font-size:31px;
+margin:14px 0 12px 0;
+line-height:1.15;
+}
+
+#perguntasFibonacci3 label{
+display:block;
+
+font-size:27px;
+
+margin:10px 0;
+line-height:1.15;
+}
+
+#numeroForaPadrao{
+position:absolute;
+
+left:70px;
+top:590px;
+
+width:260px;
+height:58px;
+
+background:rgba(0,0,0,.75);
+
+border:3px solid #00ff66;
+border-radius:12px;
+
+color:#00ff66;
+
+font-size:36px;
+font-weight:bold;
+
+text-align:center;
+
+z-index:650;
+}
+
+#validarFibonacci3{
+position:absolute;
+
+left:760px;
+top:720px;
+
+width:460px;
+height:70px;
+
+background:#0f4a21;
+
+color:white;
+
+border:3px solid #00ff66;
+border-radius:18px;
+
+font-size:25px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:650;
+}
+
+#verMapaFibonacci{
+position:absolute;
+
+left:1330px;
+top:470px;
+
+width:210px;
+height:65px;
+
+background:#111;
+
+color:#00ff66;
+
+border:3px solid #00ff66;
+border-radius:15px;
+
+font-size:24px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:650;
+}
+
+#dicaFibonacci3{
+position:absolute;
+
+left:1330px;
+top:570px;
+
+width:210px;
+height:65px;
+
+background:#111;
+
+color:#00ff66;
+
+border:3px solid #00ff66;
+border-radius:15px;
+
+font-size:24px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:650;
+}
+/* =========================
+   AJUSTE FINAL - FIBONACCI 3
+========================= */
+
+#fibonacci3Tela{
+font-family:Georgia,serif;
+color:#00ff66;
+}
+
+#perguntasFibonacci3{
+position:absolute !important;
+left:90px !important;
+top:75px !important;
+width:900px !important;
+z-index:600 !important;
+}
+
+#perguntasFibonacci3 h2{
+font-size:30px !important;
+line-height:1.15 !important;
+margin:16px 0 12px 0 !important;
+color:#00ff66 !important;
+background:transparent !important;
+}
+
+.linhaFib3{
+display:flex !important;
+align-items:center !important;
+gap:18px !important;
+font-size:31px !important;
+font-weight:bold !important;
+margin:10px 0 !important;
+color:#00ff66 !important;
+}
+
+.linhaFib3 span{
+min-width:130px !important;
+}
+
+.linhaFib3 input{
+width:105px !important;
+height:48px !important;
+background:rgba(0,0,0,.75) !important;
+border:3px solid #00ff66 !important;
+border-radius:10px !important;
+color:#00ff66 !important;
+font-size:30px !important;
+font-weight:bold !important;
+text-align:center !important;
+}
+
+#perguntasFibonacci3 label{
+display:block !important;
+font-size:25px !important;
+line-height:1.15 !important;
+margin:9px 0 !important;
+color:#00ff66 !important;
+background:transparent !important;
+}
+
+#numeroForaPadrao{
+position:absolute !important;
+left:90px !important;
+top:610px !important;
+width:250px !important;
+height:56px !important;
+background:rgba(0,0,0,.75) !important;
+border:3px solid #00ff66 !important;
+border-radius:12px !important;
+color:#00ff66 !important;
+font-size:34px !important;
+font-weight:bold !important;
+text-align:center !important;
+z-index:650 !important;
+}
+
+#validarFibonacci3{
+position:absolute !important;
+left:760px !important;
+top:720px !important;
+width:460px !important;
+height:70px !important;
+background:#0f4a21 !important;
+color:white !important;
+border:3px solid #00ff66 !important;
+border-radius:18px !important;
+font-size:25px !important;
+font-weight:bold !important;
+cursor:pointer !important;
+z-index:650 !important;
+}
+
+#verMapaFibonacci{
+position:absolute !important;
+left:1320px !important;
+top:470px !important;
+width:220px !important;
+height:65px !important;
+background:#111 !important;
+color:#00ff66 !important;
+border:3px solid #00ff66 !important;
+border-radius:15px !important;
+font-size:24px !important;
+font-weight:bold !important;
+cursor:pointer !important;
+z-index:650 !important;
+}
+
+#dicaFibonacci3{
+position:absolute !important;
+left:1320px !important;
+top:570px !important;
+width:220px !important;
+height:65px !important;
+background:#111 !important;
+color:#00ff66 !important;
+border:3px solid #00ff66 !important;
+border-radius:15px !important;
+font-size:24px !important;
+font-weight:bold !important;
+cursor:pointer !important;
+z-index:650 !important;
+}
+
+#mapaFibonacciTela{
+position:fixed !important;
+
+left:0 !important;
+top:0 !important;
+
+width:100vw !important;
+height:100vh !important;
+
+background-image:url("pista444.png") !important;
+background-size:cover !important;
+background-position:center !important;
+background-repeat:no-repeat !important;
+
+display:none;
+
+z-index:999999999 !important;
+
+cursor:pointer !important;
+}
+#btnSairJogo{
+
+position:absolute;
+
+right:60px;
+bottom:45px;
+
+width:240px;
+height:65px;
+
+background:#651616;
+
+color:white;
+
+border:3px solid #d4af37;
+
+border-radius:15px;
+
+font-size:24px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:500;
+
+transition:.2s;
+
+}
+
+#btnSairJogo:hover{
+
+background:#8b1d1d;
+transform:scale(1.03);
+
+}
+
+/* =========================
+      SAIR DO JOGO
+========================= */
+
+#btnSairJogo{
+
+position:absolute;
+
+right:50px;
+bottom:45px;
+
+width:240px;
+height:65px;
+
+background:#651616;
+
+border:3px solid #d4af37;
+
+border-radius:14px;
+
+color:white;
+
+font-size:25px;
+font-weight:bold;
+
+cursor:pointer;
+
+z-index:400;
+
+}
+
+#btnSairJogo:hover{
+
+background:#8b1d1d;
+
+}
+
+
+
+#janelaSair{
+
+position:fixed;
+
+left:0;
+top:0;
+
+width:100vw;
+height:100vh;
+
+background:rgba(0,0,0,.82);
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+z-index:999999;
+
+}
+
+
+
+#caixaSair{
+
+width:700px;
+
+padding:45px;
+
+background:#1d1d1d;
+
+border:4px solid #d4af37;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 0 40px black;
+
+}
+
+
+
+#caixaSair h1{
+
+font-size:48px;
+
+color:#f5d76e;
+
+margin-bottom:20px;
+
+}
+
+
+
+#caixaSair p{
+
+font-size:28px;
+
+color:white;
+
+margin-bottom:40px;
+
+}
+
+
+
+#continuarJogo,
+#confirmarSair{
+
+width:320px;
+
+height:70px;
+
+margin:10px;
+
+font-size:26px;
+
+font-weight:bold;
+
+border:none;
+
+border-radius:15px;
+
+cursor:pointer;
+
+}
+
+
+
+#continuarJogo{
+
+background:#145f24;
+
+color:white;
+
+}
+
+
+
+#confirmarSair{
+
+background:#8b1d1d;
+
+color:white;
+
+}
+#janelaSenhaProfessor{
+position:fixed;
+left:0;
+top:0;
+
+width:100vw;
+height:100vh;
+
+background:rgba(0,0,0,.85);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+z-index:999999999;
+}
+
+#caixaSenhaProfessor{
+width:620px;
+padding:45px;
+
+background:#1d1d1d;
+
+border:4px solid #d4af37;
+border-radius:22px;
+
+text-align:center;
+
+color:white;
+
+box-shadow:0 0 40px black;
+}
+
+#caixaSenhaProfessor h1{
+font-size:42px;
+color:#f5d76e;
+margin-bottom:20px;
+}
+
+#caixaSenhaProfessor p{
+font-size:25px;
+margin-bottom:25px;
+}
+
+#senhaProfessorInput{
+width:360px;
+height:60px;
+
+font-size:32px;
+text-align:center;
+
+background:#111;
+color:#f5d76e;
+
+border:3px solid #d4af37;
+border-radius:12px;
+}
+
+#caixaSenhaProfessor button{
+width:260px;
+height:65px;
+
+margin:18px 8px 0 8px;
+
+font-size:24px;
+font-weight:bold;
+
+background:#5b3b17;
+color:#f5d76e;
+
+border:3px solid #d4af37;
+border-radius:15px;
+
+cursor:pointer;
+}
+
+#erroSenhaProfessor{
+color:#ff7777;
+font-size:22px;
+margin-top:18px;
 }

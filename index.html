@@ -143,11 +143,19 @@ TELA DAS INVESTIGAÇÕES
 
 <button id="btnInv2" onclick="abrirInvestigacao2()"></button>
 
-<button id="btnInv3" onclick="emConstrucao()"></button>
+<button id="btnInv3" onclick="abrirCarta1()"></button>
 
 <button id="btnInv4" onclick="abrirInvestigacao4()"></button>
 
 <button id="btnProfessor" onclick="modoProfessor()"></button>
+
+<button id="btnSairJogo"
+onclick="abrirJanelaSair()">
+
+SAIR DO JOGO
+
+</button>
+
 
 </div>
 
@@ -160,8 +168,8 @@ MODO CRIAÇÃO PROFESSOR
 <h1>🔒 Criar Nova Investigação</h1>
 
 <label>Nome do caso:</label><br>
-<input id="novoTitulo"><br><br>
-autocomplete="off"
+<input id="novoTitulo" autocomplete="off" ><br><br>
+
 
 
 <h2>🔎 Evidências</h2>
@@ -404,7 +412,7 @@ autocomplete="new-password">
 
 
 <h3 id="pontuacao">
-Pontuação: 10
+Pontuação: 11
 </h3>
 
 
@@ -1160,12 +1168,538 @@ onclick="verificarSistema()"></button>
 <!-- TIMER MISSÃO 8 -->
 
 <div id="timerMissao8">
-01:00
+02:00
 </div>
 
 
 </div> <!-- FECHA investigacao2Intro -->
 
+<!-- =========================
+     CARTAS INVESTIGAÇÃO 3
+========================= -->
+
+<div id="carta1" onclick="abrirCarta2()" style="display:none;"></div>
+
+<div id="carta2" onclick="abrirCarta3()" style="display:none;"></div>
+
+<div id="carta3" onclick="abrirCarta4()" style="display:none;"></div>
+
+<div id="carta4" onclick="abrirSalaPistas()" style="display:none;"></div>
+
+<div id="salaPistas" style="display:none;"></div>
+
+<!-- =========================
+ INVESTIGAÇÃO 3 - PISTAS VISUAIS
+========================= -->
+
+<div id="pistaVisual" onclick="voltarSalaPistas()" style="display:none;"></div>
+
+<!-- botões invisíveis da sala -->
+<div id="botoesSalaPistas" style="display:none;">
+
+<button id="btnPista1" onclick="abrirPistaVisual('pista1.png')"></button>
+
+<button id="btnPista2" onclick="abrirPistaVisual('pista2.png')"></button>
+
+<button id="btnPista3" onclick="abrirPistaVisual('pista3.png')"></button>
+
+<button id="btnPista4" onclick="abrirPista4()"></button>
+
+<button id="btnPista5" onclick="abrirPista5()"></button>
+
+<button id="btnPista6" onclick="abrirPistaVisual('pista6.png')"></button>
+
+<button id="btnPista7" onclick="abrirPista7()"></button>
+
+<button id="btnPista8" onclick="abrirPistaVisual('pista8.png')"></button>
+
+<button id="btnPista9" onclick="abrirPistaVisual('pista9.png')"></button>
+
+</div>
+
+<!-- PISTA 5 - GAVETA -->
+<div id="pista5Tela" style="display:none;">
+
+<input id="codigoGaveta1" maxlength="2" autocomplete="off">
+<input id="codigoGaveta2" maxlength="2" autocomplete="off">
+<input id="codigoGaveta3" maxlength="2" autocomplete="off">
+<input id="codigoGaveta4" maxlength="2" autocomplete="off">
+
+<button id="confirmarGaveta" onclick="verificarCodigoGaveta()">
+ABRIR
+</button>
+
+<button id="voltarGaveta" onclick="voltarSalaPistas()">
+VOLTAR
+</button>
+
+<button id="dicaGaveta" onclick="mostrarDicaGaveta()">
+DICA
+</button>
+
+</div>
+
+<div id="pista55Tela" onclick="voltarSalaPistas()" style="display:none;"></div>
+
+<!-- PISTA 7 - COFRE -->
+<div id="pista7Tela" onclick="abrirPista77()" style="display:none;"></div>
+
+<div id="pista77Tela" style="display:none;">
+
+<input id="codigoCofre" maxlength="3" autocomplete="off">
+
+<button id="confirmarCofre" onclick="verificarCodigoCofre()">
+ABRIR
+</button>
+
+<button id="voltarCofre" onclick="voltarSalaPistas()">
+VOLTAR
+</button>
+
+<button id="dicaCofre" onclick="mostrarDicaCofre()">
+DICA
+</button>
+
+</div>
+
+<div id="pista777Tela" onclick="voltarSalaPistas()" style="display:none;"></div>
+
+<!-- PISTA 4 - COMPUTADOR / RASTREADOR -->
+
+<div id="pista4Tela" style="display:none;">
+
+<div id="textoRastreador">
+
+<h1>SISTEMA DE RASTREAMENTO</h1>
+
+<p>
+O programa foi encontrado, porém está protegido.
+</p>
+
+<p>
+Para iniciar a busca será necessário informar
+o <b>CÓDIGO DO RASTREADOR</b>.
+</p>
+
+<p>
+A equipe acredita que esse código esteja guardado
+no cofre encontrado no laboratório.
+</p>
+
+</div>
+
+<input id="codigoRastreador"
+maxlength="6"
+autocomplete="off">
+
+<button id="confirmarRastreador"
+onclick="verificarRastreador()">
+ABRIR
+</button>
+
+<button id="voltarRastreador"
+onclick="voltarSalaPistas()">
+VOLTAR
+</button>
+
+</div>
+
+<div id="pista44Tela" onclick="abrirPista444()" style="display:none;"></div>
+
+<div id="pista444Tela" onclick="abrirFibonacci1()" style="display:none;"></div>
+
+<div id="fibonacci1Tela" onclick="abrirFibonacci2()" style="display:none;"></div>
+
+<div id="fibonacci2Tela" style="display:none;">
+
+<div id="perguntasFibonacci2">
+
+<h2>
+1) Observe o mapa ao lado e identifique os seis menores números que pertencem ao mesmo padrão.
+<br>
+Escreva-os em ordem crescente, separados por vírgulas.
+</h2>
+
+<input id="fibOrdem" autocomplete="off">
+
+<h2>
+2) Qual é o nome dessa sequência?
+</h2>
+
+<label><input type="radio" name="tipoFib" value="pa"> Progressão aritmética</label>
+<label><input type="radio" name="tipoFib" value="fibonacci"> Sequência de Fibonacci</label>
+<label><input type="radio" name="tipoFib" value="primos"> Números primos</label>
+
+<button id="validarFibonacci2" onclick="verificarFibonacci2()">
+VALIDAR PADRÃO
+</button>
+
+</div>
+
+</div>
+
+<div id="fibonacci3Tela" style="display:none;">
+
+
+
+<div id="perguntasFibonacci3">
+
+<h2>3) Agora observe como a sequência cresce. Complete:</h2>
+
+<div class="linhaFib3">
+<span>1 + 1 =</span>
+<input id="fibSoma1" maxlength="2" autocomplete="off">
+</div>
+
+<div class="linhaFib3">
+<span>1 + 2 =</span>
+<input id="fibSoma2" maxlength="2" autocomplete="off">
+</div>
+
+<div class="linhaFib3">
+<span>2 + 3 =</span>
+<input id="fibSoma3" maxlength="2" autocomplete="off">
+</div>
+
+<h2>4) Qual é a regra da sequência?</h2>
+
+<label><input type="radio" name="regraFib" value="dobro"> Cada número é o dobro do anterior.</label>
+<label><input type="radio" name="regraFib" value="soma"> Cada termo é a soma dos dois termos anteriores.</label>
+<label><input type="radio" name="regraFib" value="mais2"> Cada termo aumenta sempre 2 unidades.</label>
+
+<h2>5) Qual número do mapa NÃO pertence à sequência de Fibonacci?</h2>
+
+<input id="numeroForaPadrao" autocomplete="off">
+
+<button id="validarFibonacci3" onclick="verificarFibonacci3()">
+LOCALIZAR PROFESSOR
+</button>
+
+<button id="dicaFibonacci3" onclick="mostrarDicaFibonacci3()">
+DICA
+</button>
+
+</div>
+
+</div>
+
+
+
+<div id="final1Tela" onclick="abrirFinal2()" style="display:none;"></div>
+<div id="final2Tela" onclick="abrirFinal3()" style="display:none;"></div>
+<div id="final3Tela" onclick="abrirFinal4()" style="display:none;"></div>
+<div id="final4Tela" onclick="abrirFinal5()" style="display:none;"></div>
+
+<div id="final5Tela" style="display:none;">
+
+<div id="resultadoEstrelas"></div>
+
+<button id="voltarFinalInvestigacoes" onclick="encerrarInvestigacao3()">
+VOLTAR ÀS INVESTIGAÇÕES
+</button>
+
+</div>
+
+
+
+<!-- MISSÃO 9 - TESTE DA FÓRMULA DOS PRIMOS -->
+
+<div id="missao9Teste" style="display:none;">
+
+<h1>Teste da fórmula encontrada</h1>
+
+<div class="testeLinha">
+
+<span>n = 10 ➜</span>
+
+<input id="valor10">
+
+<button id="sim10" onclick="responderPrimo(10,'sim')">
+PRIMO
+</button>
+
+<button id="nao10" onclick="responderPrimo(10,'nao')">
+NÃO PRIMO
+</button>
+
+</div>
+
+
+<div class="testeLinha">
+
+<span>n = 41 ➜</span>
+
+<input id="valor41">
+
+<button id="sim41" onclick="responderPrimo(41,'sim')">
+PRIMO
+</button>
+
+<button id="nao41" onclick="responderPrimo(41,'nao')">
+NÃO PRIMO
+</button>
+
+</div>
+
+
+<button id="prosseguirMissao9" onclick="finalizarMissao9()">
+PROSSEGUIR INVESTIGAÇÃO
+</button>
+
+</div> <!-- FECHA missao9Teste -->
+
+<div id="missao10Teste" style="display:none;">
+
+
+<div class="pergunta10">
+
+<h3>1) Qual foi o erro cometido na primeira análise da fórmula?</h3>
+
+<label><input type="radio" name="q1" value="A">
+Testar até 41 antes de continuar.</label>
+
+<label><input type="radio" name="q1" value="B">
+Testar vários casos não garante que uma fórmula será verdadeira para todos.</label>
+
+<label><input type="radio" name="q1" value="C">
+A fórmula estava escrita incorretamente.</label>
+
+</div>
+
+
+
+<div class="pergunta10">
+
+<h3>2) Por que encontrar n = 41 mudou a investigação?</h3>
+
+<label><input type="radio" name="q2" value="A">
+Encontramos um caso mostrando que a regra não funcionava sempre.</label>
+
+<label><input type="radio" name="q2" value="B">
+Depois do 41 nenhuma fórmula funciona.</label>
+
+<label><input type="radio" name="q2" value="C">
+Números maiores não podem ser testados.</label>
+
+</div>
+
+
+
+<div class="pergunta10">
+
+<h3>3) O que os investigadores aprenderam?</h3>
+
+<label><input type="radio" name="q3" value="A">
+Exemplos ajudam, mas uma demonstração é necessária.</label>
+
+<label><input type="radio" name="q3" value="B">
+Basta testar muitos exemplos.</label>
+
+<label><input type="radio" name="q3" value="C">
+Toda sequência terá uma fórmula verdadeira.</label>
+
+</div>
+
+
+<button id="encerrarMissao10"
+onclick="verificarMissao10()">
+ENCERRAR CASO
+</button>
+
+
+</div>
+<div id="missao12Perguntas" style="display:none;">
+
+<div class="pergunta12">
+
+<h3>1) Qual foi o erro principal da equipe anterior?</h3>
+
+<label><input type="radio" name="m12q1" value="A">
+Demonstrou apenas o passo indutivo e arquivou o caso.</label>
+
+<label><input type="radio" name="m12q1" value="B">
+Testou muitos valores antes de concluir.</label>
+
+<label><input type="radio" name="m12q1" value="C">
+Usou uma fórmula com expoente.</label>
+
+</div>
+
+
+<div class="pergunta12">
+
+<h3>2) O que precisa ser verificado antes do passo indutivo?</h3>
+
+<label><input type="radio" name="m12q2" value="A">
+O maior valor possível de n.</label>
+
+<label><input type="radio" name="m12q2" value="B">
+O caso base.</label>
+
+<label><input type="radio" name="m12q2" value="C">
+A quantidade de exemplos testados.</label>
+
+</div>
+
+
+<div class="pergunta12">
+
+<h3>3) A afirmação n² − n é sempre ímpar é:</h3>
+
+<label><input type="radio" name="m12q3" value="A">
+Verdadeira para todo número natural.</label>
+
+<label><input type="radio" name="m12q3" value="B">
+Falsa, pois n² − n é produto de dois números consecutivos.</label>
+
+<label><input type="radio" name="m12q3" value="C">
+Impossível de testar.</label>
+
+</div>
+
+
+<div class="pergunta12">
+
+<h3>4) Para provar uma afirmação por indução matemática, precisamos:</h3>
+
+<label><input type="radio" name="m12q4" value="A">
+Testar alguns valores e observar o padrão.</label>
+
+<label><input type="radio" name="m12q4" value="B">
+Demonstrar apenas que vale para n + 1.</label>
+
+<label><input type="radio" name="m12q4" value="C">
+Validar o caso base e demonstrar o passo indutivo.</label>
+
+</div>
+
+
+<button id="concluirMissao12" onclick="verificarMissao12()">
+CONCLUIR INVESTIGAÇÃO
+</button>
+
+</div>
+
+<!-- MISSÃO 14 - PROVA DO PADRÃO -->
+
+<div id="missao14Perguntas" style="display:none;">
+
+<div class="questao14">
+<h3>1) Qual é o caso base da fórmula T(n) = 2n + 2?</h3>
+
+<label><input type="radio" name="m14q1" value="A"> n = 0</label>
+<label><input type="radio" name="m14q1" value="B"> n = 1</label>
+<label><input type="radio" name="m14q1" value="C"> n = 2</label>
+</div>
+
+
+<div class="questao14">
+<h3>2) Para n = 1, qual valor confirma a fórmula?</h3>
+
+<label><input type="radio" name="m14q2" value="A"> T(1) = 2</label>
+<label><input type="radio" name="m14q2" value="B"> T(1) = 4</label>
+<label><input type="radio" name="m14q2" value="C"> T(1) = 6</label>
+</div>
+
+
+<div class="questao14">
+<h3>3) No passo indutivo, devemos supor que:</h3>
+
+<label><input type="radio" name="m14q3" value="A"> T(n) = 2n + 2 é verdadeira.</label>
+<label><input type="radio" name="m14q3" value="B"> T(n) = n² é verdadeira.</label>
+<label><input type="radio" name="m14q3" value="C"> T(n) = 2n é falsa.</label>
+</div>
+
+
+<div class="questao14">
+<h3>4) Depois disso, precisamos provar que:</h3>
+
+<label><input type="radio" name="m14q4" value="A"> A fórmula vale para n - 1.</label>
+<label><input type="radio" name="m14q4" value="B"> A fórmula vale para n + 1.</label>
+<label><input type="radio" name="m14q4" value="C"> A fórmula vale só para n = 3.</label>
+</div>
+
+
+<div class="questao14">
+<h3>5) Substituindo n por n + 1, ficamos com:</h3>
+
+<label><input type="radio" name="m14q5" value="A"> T(n+1) = 2(n+1) + 2</label>
+<label><input type="radio" name="m14q5" value="B"> T(n+1) = 2n + 2</label>
+<label><input type="radio" name="m14q5" value="C"> T(n+1) = n + 2</label>
+</div>
+
+
+<div class="questao14">
+<h3>6) Se o caso base e o passo indutivo estão corretos, concluímos que:</h3>
+
+<label><input type="radio" name="m14q6" value="A"> A fórmula vale apenas para alguns casos.</label>
+<label><input type="radio" name="m14q6" value="B"> A fórmula vale para todo número natural.</label>
+<label><input type="radio" name="m14q6" value="C"> A fórmula depende de sorte.</label>
+</div>
+
+
+<button id="validarMissao14" onclick="verificarMissao14()">
+VALIDAR DEMONSTRAÇÃO
+</button>
+
+</div>
+<div id="resultadoMissao17" style="display:none;"></div>
+
+<!-- =========================
+     JANELA SAIR DO JOGO
+========================= -->
+
+<div id="janelaSair" style="display:none;">
+
+    <div id="caixaSair">
+
+        <h1>SAIR DO JOGO?</h1>
+
+        <p>
+        Você perderá o progresso da investigação atual.
+        </p>
+
+        <button id="continuarJogo"
+        onclick="fecharJanelaSair()">
+
+        CONTINUAR JOGANDO
+
+        </button>
+
+        <button id="confirmarSair"
+        onclick="confirmarSaida()">
+
+        SAIR
+
+        </button>
+
+    </div>
+
+</div>
+
+<div id="janelaSenhaProfessor" style="display:none;">
+
+<div id="caixaSenhaProfessor">
+
+<h1>🔒 MODO PROFESSOR</h1>
+
+<p>Digite a senha para criar uma nova investigação.</p>
+
+<input id="senhaProfessorInput" type="password" autocomplete="off">
+
+<button onclick="validarSenhaProfessor()">
+ENTRAR
+</button>
+
+<button onclick="fecharSenhaProfessor()">
+CANCELAR
+</button>
+
+<p id="erroSenhaProfessor"></p>
+
+</div>
+
+</div>
 </div> <!-- FECHA O JOGO -->
 
 

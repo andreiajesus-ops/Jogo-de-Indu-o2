@@ -2435,33 +2435,43 @@ botao.style.opacity="1";
 });
 
 
-}function modoProfessor(){
+}
 
-let senha = prompt("Digite a senha do professor:");
+function modoProfessor(){
+
+document.getElementById("janelaSenhaProfessor").style.display="flex";
+document.getElementById("senhaProfessorInput").value="";
+document.getElementById("erroSenhaProfessor").innerHTML="";
+
+setTimeout(()=>{
+document.getElementById("senhaProfessorInput").focus();
+},100);
+
+}
+
+function fecharSenhaProfessor(){
+
+document.getElementById("janelaSenhaProfessor").style.display="none";
+
+}
+
+function validarSenhaProfessor(){
+
+let senha=document.getElementById("senhaProfessorInput").value;
 
 if(senha=="1234"){
 
-
-// fecha tela das investigações
-
+document.getElementById("janelaSenhaProfessor").style.display="none";
 document.getElementById("telaInvestigacoes").style.display="none";
-
-
-// abre criação
-
 document.getElementById("modoCriacao").style.display="block";
 
+}else{
+
+document.getElementById("erroSenhaProfessor").innerHTML="Senha incorreta.";
 
 }
 
-else{
-
-alert("🔒 Senha incorreta");
-
-}
-
-}
-async function salvarInvestigacaoProfessor(){
+}async function salvarInvestigacaoProfessor(){
 
 let investigacao = {
 
@@ -2965,14 +2975,24 @@ resposta = resposta.replace(/\s/g,"").toLowerCase();
 
 if(resposta=="2n+2" || resposta=="2*n+2"){
 
-alert("🔓 Sistema reiniciado!\n\nNovos arquivos serão liberados em breve.\n\n🚧 Fase em construção.");
-
-
+// tira apenas o campo de resposta
 document.getElementById("desbloquearSistema").style.display="none";
 
-document.getElementById("investigacao2Intro").style.display="none";
 
-document.getElementById("telaInvestigacoes").style.display="block";
+// continua usando a mesma tela
+let tela=document.getElementById("investigacao2Intro");
+
+
+// abre a próxima missão
+tela.style.backgroundImage="url('missao9.png')";
+document.getElementById("missao9Teste").style.display="block";
+
+// mantém cronômetro rodando
+document.getElementById("timerMissao8").style.display="block";
+
+
+// tira clique antigo se existir
+tela.onclick=null;
 
 
 }else{
@@ -2989,7 +3009,7 @@ let intervaloMissao8;
 
 function iniciarTimerMissao8(){
 
-tempoMissao8 = 120;
+tempoMissao8 = 600;
 
 
 document.getElementById("timerMissao8").style.display="block";
@@ -3012,54 +3032,47 @@ tempoMissao8--;
 
 if(tempoMissao8 < 0){
 
-clearInterval(intervaloMissao8);
+    abrirTempo1();
 
-abrirTempoEsgotado();
+    return;
 
 }
-
-
 },1000);
-
 
 }
 // ============================
 // TEMPO ESGOTADO MISSÃO 8
 // ============================
 
-
 function abrirTempo1(){
 
+limparInvestigacao2();
+
+resetarCamposInvestigacao2();
 
 document.getElementById("desbloquearSistema").style.display="none";
-
 document.getElementById("timerMissao8").style.display="none";
-
+document.getElementById("missao9Teste").style.display="none";
+document.getElementById("missao12Perguntas").style.display="none";
+document.getElementById("missao14Perguntas").style.display="none";
 
 let tela=document.getElementById("investigacao2Intro");
 
-
+tela.style.display="block";
 tela.style.backgroundImage="url('tempo1.png')";
 
-
 tela.onclick=abrirTempo2;
-
 
 }
 
 
-
 function abrirTempo2(){
-
 
 let tela=document.getElementById("investigacao2Intro");
 
-
 tela.style.backgroundImage="url('tempo2.png')";
 
-
 tela.onclick=voltarInvestigacoes;
-
 
 }
 
@@ -3067,17 +3080,1199 @@ tela.onclick=voltarInvestigacoes;
 
 function voltarInvestigacoes(){
 
+resetarCamposInvestigacao2();
+
+let tela=document.getElementById("investigacao2Intro");
+
+tela.onclick=null;
+tela.style.display="none";
+
+document.getElementById("telaInvestigacoes").style.display="block";
+
+}
+
+function finalizarMissao9(){
+
+let v10=document.getElementById("valor10").value.trim();
+let v41=document.getElementById("valor41").value.trim();
+
+
+if(v10=="131" && escolha10=="sim" &&
+   v41=="1681" && escolha41=="nao"){
+
+
+document.getElementById("missao9Teste").style.display="none";
+
 
 let tela=document.getElementById("investigacao2Intro");
 
 
-tela.onclick=null;
+tela.style.backgroundImage="url('missao10.png')";
 
 
+let perguntas10=document.getElementById("missao10Teste");
+
+perguntas10.style.display="flex";
+
+perguntas10.style.zIndex="999999999";
+
+
+document.getElementById("timerMissao8").style.display="block";
+}
+
+else{
+
+alert("⚠️ Algo ainda não foi investigado corretamente.\n\nRevise os cálculos.");
+
+}
+
+
+}
+// ============================
+// INVESTIGAÇÃO 3 - CARTAS
+// ============================
+
+function abrirCarta1(){
+
+limparTelasInvestigacoes();
+
+document.getElementById("telaInvestigacoes").style.display="none";
+
+document.getElementById("carta1").style.display="block";
+
+}
+
+
+function abrirCarta2(){
+
+document.getElementById("carta1").style.display="none";
+
+document.getElementById("carta2").style.display="block";
+
+}
+
+
+function abrirCarta3(){
+
+document.getElementById("carta2").style.display="none";
+
+document.getElementById("carta3").style.display="block";
+
+}
+
+
+function abrirCarta4(){
+
+document.getElementById("carta3").style.display="none";
+
+document.getElementById("carta4").style.display="block";
+
+}
+
+
+function abrirSalaPistas(){
+
+document.getElementById("carta4").style.display="none";
+
+document.getElementById("salaPistas").style.display="block";
+
+mostrarBotoesSalaPistas();
+}
+// ============================
+// INVESTIGAÇÃO 3 - PISTAS VISUAIS
+// ============================
+
+function mostrarBotoesSalaPistas(){
+
+document.getElementById("botoesSalaPistas").style.display="block";
+
+}
+
+
+function esconderBotoesSalaPistas(){
+
+document.getElementById("botoesSalaPistas").style.display="none";
+
+}
+
+
+function abrirPistaVisual(imagem){
+
+document.getElementById("salaPistas").style.display="none";
+
+esconderBotoesSalaPistas();
+
+let tela=document.getElementById("pistaVisual");
+
+tela.style.backgroundImage="url('"+imagem+"')";
+
+tela.style.display="block";
+
+}
+
+
+function voltarSalaPistas(){
+
+[
+"pistaVisual",
+"pista5Tela",
+"pista55Tela",
+"pista7Tela",
+"pista77Tela",
+"pista777Tela",
+"pista4Tela",
+"pista44Tela",
+"pista444Tela",
+"fibonacci1Tela",
+"fibonacci2Tela",
+"fibonacci3Tela",
+"final1Tela",
+"final2Tela",
+"final3Tela",
+"final4Tela",
+"final5Tela"
+].forEach(function(id){
+
+let tela=document.getElementById(id);
+
+if(tela){
 tela.style.display="none";
+}
 
+});
+
+document.getElementById("salaPistas").style.display="block";
+
+mostrarBotoesSalaPistas();
+
+}// ============================
+// INVESTIGAÇÃO 3 - PISTA 5
+// ============================
+
+let dicasInvestigacao3 = 0;
+let dicaGavetaUsada = false;
+
+function abrirPista5(){
+
+voltarSalaPistas();
+
+document.getElementById("salaPistas").style.display="none";
+
+esconderBotoesSalaPistas();
+
+document.getElementById("pista5Tela").style.display="block";
+
+}
+
+
+function verificarCodigoGaveta(){
+
+let n1=document.getElementById("codigoGaveta1").value.trim();
+let n2=document.getElementById("codigoGaveta2").value.trim();
+let n3=document.getElementById("codigoGaveta3").value.trim();
+let n4=document.getElementById("codigoGaveta4").value.trim();
+
+if(n1=="31" && n2=="19" && n3=="13" && n4=="3"){
+
+document.getElementById("pista5Tela").style.display="none";
+
+limparCodigoGaveta();
+
+document.getElementById("pista55Tela").style.display="block";
+
+}else{
+
+mostrarMensagem(
+"🔒 Código incorreto",
+"Não é o código correto.<br><br>Revise as pistas anteriores e tente novamente.",
+"CONTINUAR",
+"this.parentElement.remove()"
+);
+
+}
+
+}
+
+
+function mostrarDicaGaveta(){
+
+if(dicaGavetaUsada){
+return;
+}
+
+dicaGavetaUsada=true;
+dicasInvestigacao3++;
+
+mostrarMensagem(
+"💡 Dica da gaveta",
+"São 4 números primos que vocês descobriram nas pistas anteriores.<br><br>"+
+"Eles devem estar em <b>ordem decrescente</b>.<br><br>"+
+"Obs.: cada campo pode ser preenchido por um número com mais de um algarismo.",
+"ENTENDI",
+"this.parentElement.remove()"
+);
+
+document.getElementById("dicaGaveta").innerHTML="DICA USADA";
+document.getElementById("dicaGaveta").disabled=true;
+
+}
+
+
+function limparCodigoGaveta(){
+
+document.getElementById("codigoGaveta1").value="";
+document.getElementById("codigoGaveta2").value="";
+document.getElementById("codigoGaveta3").value="";
+document.getElementById("codigoGaveta4").value="";
+
+}
+
+// ============================
+// INVESTIGAÇÃO 3 - PISTA 7
+// ============================
+
+let dicaCofreUsada = false;
+
+function abrirPista7(){
+
+voltarSalaPistas();
+
+document.getElementById("salaPistas").style.display="none";
+
+esconderBotoesSalaPistas();
+
+document.getElementById("pista7Tela").style.display="block";
+
+}
+
+
+function abrirPista77(){
+
+document.getElementById("pista7Tela").style.display="none";
+
+document.getElementById("pista77Tela").style.display="block";
+
+}
+
+
+function verificarCodigoCofre(){
+
+let codigo=document.getElementById("codigoCofre").value.trim();
+
+if(codigo=="757"){
+
+document.getElementById("pista77Tela").style.display="none";
+
+document.getElementById("codigoCofre").value="";
+
+document.getElementById("pista777Tela").style.display="block";
+
+}else{
+
+mostrarMensagem(
+"🔒 Código incorreto",
+"Você ainda precisa investigar melhor as pistas.",
+"CONTINUAR",
+"this.parentElement.remove()"
+);
+
+}
+
+}
+
+
+function mostrarDicaCofre(){
+
+if(dicaCofreUsada){
+return;
+}
+
+dicaCofreUsada=true;
+dicasInvestigacao3++;
+
+mostrarMensagem(
+"💡 Dica do cofre",
+"Perceba qual é o padrão da sequência que aparece nas camisetas da foto.<br><br>"+
+"Os dígitos distintos são <b>1, 3 e 9</b>.<br><br>"+
+"Qual é o valor desses números na sequência?<br><br>"+
+"Some os resultados e chegue ao código para abrir o cofre.",
+"ENTENDI",
+"this.parentElement.remove()"
+);
+
+document.getElementById("dicaCofre").innerHTML="DICA USADA";
+document.getElementById("dicaCofre").disabled=true;
+
+}
+
+// ============================
+// INVESTIGAÇÃO 3 - PISTA 4 / FINAL
+// ============================
+
+let dicaFibonacci3Usada=false;
+
+function abrirPista4(){
+voltarSalaPistas();
+
+document.getElementById("salaPistas").style.display="none";
+
+esconderBotoesSalaPistas();
+
+document.getElementById("pista4Tela").style.display="block";
+
+}
+
+
+function verificarRastreador(){
+
+let codigo=document.getElementById("codigoRastreador").value.trim().toUpperCase();
+
+if(codigo=="CZA442"){
+
+document.getElementById("pista4Tela").style.display="none";
+
+document.getElementById("codigoRastreador").value="";
+
+document.getElementById("pista44Tela").style.display="block";
+
+}else{
+
+mostrarMensagem(
+"🔒 Código incorreto",
+"O sistema de rastreamento não reconheceu esse código.",
+"CONTINUAR",
+"this.parentElement.remove()"
+);
+
+}
+
+}
+
+
+function abrirPista444(){
+
+document.getElementById("pista44Tela").style.display="none";
+
+document.getElementById("pista444Tela").style.display="block";
+
+}
+
+
+function abrirFibonacci1(){
+
+document.getElementById("pista444Tela").style.display="none";
+
+document.getElementById("fibonacci1Tela").style.display="block";
+
+}
+
+
+function abrirFibonacci2(){
+
+document.getElementById("fibonacci1Tela").style.display="none";
+
+document.getElementById("fibonacci2Tela").style.display="block";
+
+}
+
+
+function verificarFibonacci2(){
+
+let ordem=document.getElementById("fibOrdem").value;
+
+ordem=ordem.replace(/\s/g,"");
+
+let tipo=document.querySelector("input[name='tipoFib']:checked");
+
+let ordemCorreta =
+ordem=="0,1,1,2,3,5" ||
+ordem=="011235";
+
+let tipoCorreto = tipo && tipo.value=="fibonacci";
+
+if(ordemCorreta && tipoCorreto){
+
+document.getElementById("fibonacci2Tela").style.display="none";
+
+document.getElementById("fibonacci3Tela").style.display="block";
+
+}else{
+
+mostrarMensagem(
+"🔎 Revise o padrão",
+"Algo ainda não encaixa.<br><br>Observe os números do mapa e tente encontrar a regra da sequência.",
+"CONTINUAR",
+"this.parentElement.remove()"
+);
+
+}
+
+}
+
+
+function mostrarDicaFibonacci3(){
+
+if(dicaFibonacci3Usada){
+return;
+}
+
+dicaFibonacci3Usada=true;
+dicasInvestigacao3++;
+
+mostrarMensagem(
+"💡 Dica do padrão",
+"Observe que, para achar o quarto termo, somamos os dois anteriores.<br><br>"+
+"O quinto termo é a soma do terceiro termo com o quarto termo.<br><br>"+
+"Procure no mapa o número que quebra essa regra.",
+"ENTENDI",
+"this.parentElement.remove()"
+);
+
+document.getElementById("dicaFibonacci3").innerHTML="DICA USADA";
+document.getElementById("dicaFibonacci3").disabled=true;
+
+}
+
+
+function verificarFibonacci3(){
+
+let s1=document.getElementById("fibSoma1").value.trim();
+let s2=document.getElementById("fibSoma2").value.trim();
+let s3=document.getElementById("fibSoma3").value.trim();
+
+let regra=document.querySelector("input[name='regraFib']:checked");
+
+let fora=document.getElementById("numeroForaPadrao").value.trim();
+
+if(
+s1=="2" &&
+s2=="3" &&
+s3=="5" &&
+regra &&
+regra.value=="soma" &&
+fora=="1000"
+){
+
+document.getElementById("fibonacci3Tela").style.display="none";
+
+document.getElementById("fibSoma1").value="";
+document.getElementById("fibSoma2").value="";
+document.getElementById("fibSoma3").value="";
+document.getElementById("numeroForaPadrao").value="";
+
+document.querySelectorAll("input[name='regraFib']").forEach(function(radio){
+radio.checked=false;
+});
+
+document.getElementById("final1Tela").style.display="block";
+
+}else{
+
+mostrarMensagem(
+"📍 Localização não confirmada",
+"Alguma informação ainda não encaixa no padrão.<br><br>Continue investigando a sequência.",
+"CONTINUAR",
+"this.parentElement.remove()"
+);
+
+}
+
+}
+
+function abrirFinal2(){
+
+document.getElementById("final1Tela").style.display="none";
+
+document.getElementById("final2Tela").style.display="block";
+
+}
+
+
+function abrirFinal3(){
+
+document.getElementById("final2Tela").style.display="none";
+
+document.getElementById("final3Tela").style.display="block";
+
+}
+
+
+function abrirFinal4(){
+
+document.getElementById("final3Tela").style.display="none";
+
+document.getElementById("final4Tela").style.display="block";
+
+}
+
+
+function abrirFinal5(){
+
+document.getElementById("final4Tela").style.display="none";
+
+let estrelas=5-dicasInvestigacao3;
+
+if(estrelas<1){
+estrelas=1;
+}
+
+let nomeEquipe="";
+
+let equipe=JSON.parse(localStorage.getItem("equipeAtual"));
+
+if(equipe && equipe.nome){
+nomeEquipe=equipe.nome;
+}else{
+nomeEquipe="Equipe";
+}
+
+let estrelasTexto="";
+
+for(let i=0;i<estrelas;i++){
+estrelasTexto+="⭐";
+}
+
+document.getElementById("resultadoEstrelas").innerHTML=
+
+"Equipe: "+nomeEquipe+"<br>"+
+"Desempenho: "+estrelasTexto+"<br>"+
+estrelas+" estrela(s)<br>"+
+"Dicas usadas: "+dicasInvestigacao3;
+
+document.getElementById("final5Tela").style.display="block";
+
+}
+
+
+function encerrarInvestigacao3(){
+
+limparInvestigacao3();
+
+document.getElementById("final5Tela").style.display="none";
 
 document.getElementById("telaInvestigacoes").style.display="block";
 
+}
+
+
+function limparInvestigacao3(){
+
+[
+"carta1",
+"carta2",
+"carta3",
+"carta4",
+"salaPistas",
+"pistaVisual",
+"pista5Tela",
+"pista55Tela",
+"pista7Tela",
+"pista77Tela",
+"pista777Tela",
+"pista4Tela",
+"pista44Tela",
+"pista444Tela",
+"fibonacci1Tela",
+"fibonacci2Tela",
+"fibonacci3Tela",
+"final1Tela",
+"final2Tela",
+"final3Tela",
+"final4Tela",
+"final5Tela"
+].forEach(function(id){
+
+let obj=document.getElementById(id);
+
+if(obj){
+obj.style.display="none";
+}
+
+});
+
+esconderBotoesSalaPistas();
+
+if(document.getElementById("codigoRastreador")){
+document.getElementById("codigoRastreador").value="";
+}
+
+if(document.getElementById("fibOrdem")){
+document.getElementById("fibOrdem").value="";
+}
+
+if(document.getElementById("numeroForaPadrao")){
+document.getElementById("numeroForaPadrao").value="";
+}
+
+document.querySelectorAll("input[name='tipoFib']").forEach(function(radio){
+radio.checked=false;
+});
+
+}
+
+// =========================
+// MISSÃO 9 - TESTE DOS PRIMOS
+// =========================
+
+let escolha10="";
+let escolha41="";
+
+
+function responderPrimo(numero,resposta){
+
+
+if(numero==10){
+
+escolha10=resposta;
+
+
+// limpa os dois
+
+document.getElementById("sim10").classList.remove("selecionado");
+document.getElementById("nao10").classList.remove("selecionado");
+
+
+// marca escolhido
+
+if(resposta=="sim"){
+
+document.getElementById("sim10").classList.add("selecionado");
+
+}else{
+
+document.getElementById("nao10").classList.add("selecionado");
+
+}
+
+}
+
+
+
+if(numero==41){
+
+escolha41=resposta;
+
+
+document.getElementById("sim41").classList.remove("selecionado");
+document.getElementById("nao41").classList.remove("selecionado");
+
+
+if(resposta=="sim"){
+
+document.getElementById("sim41").classList.add("selecionado");
+
+}else{
+
+document.getElementById("nao41").classList.add("selecionado");
+
+}
+
+}
+
+
+}
+function limparInvestigacao2(){
+
+
+/* esconde telas de interação */
+
+document.getElementById("desbloquearSistema").style.display="none";
+
+document.getElementById("missao9Teste").style.display="none";
+
+document.getElementById("missao10Teste").style.display="none";
+
+
+
+/* limpa campos */
+
+document.getElementById("codigoSistema").value="";
+
+document.getElementById("valor10").value="";
+
+document.getElementById("valor41").value="";
+
+
+
+/* limpa escolhas */
+
+escolha10="";
+escolha41="";
+
+
+
+/* tira marca verde dos botões */
+
+document.querySelectorAll(".selecionado")
+.forEach(botao=>{
+
+botao.classList.remove("selecionado");
+
+});
+
+
+
+}
+function verificarMissao10(){
+
+
+let q1=document.querySelector('input[name="q1"]:checked');
+let q2=document.querySelector('input[name="q2"]:checked');
+let q3=document.querySelector('input[name="q3"]:checked');
+
+
+if(!q1 || !q2 || !q3){
+
+alert("🕵️ Responda todas as análises antes de encerrar.");
+
+return;
+
+}
+
+
+if(q1.value=="B" &&
+   q2.value=="A" &&
+   q3.value=="A"){
+
+
+document.getElementById("missao10Teste").style.display="none";
+
+
+let tela=document.getElementById("investigacao2Intro");
+
+
+tela.style.backgroundImage="url('missao11.png')";
+
+
+// mantém timer
+
+document.getElementById("timerMissao8").style.display="block";
+
+
+// clique para próxima tela
+
+tela.onclick=abrirMissao12;
+
+
+}
+
+else{
+
+
+alert("⚠️ O relatório possui erros.\n\nReveja as conclusões dos investigadores.");
+
+
+}
+
+
+}
+function abrirMissao12(){
+
+let tela=document.getElementById("investigacao2Intro");
+
+tela.style.backgroundImage="url('missao12.png')";
+
+document.getElementById("timerMissao8").style.display="block";
+
+document.getElementById("missao12Perguntas").style.display="grid";
+
+tela.onclick=null;
+
+}
+function verificarMissao12(){
+
+let q1=document.querySelector('input[name="m12q1"]:checked');
+let q2=document.querySelector('input[name="m12q2"]:checked');
+let q3=document.querySelector('input[name="m12q3"]:checked');
+let q4=document.querySelector('input[name="m12q4"]:checked');
+
+if(!q1 || !q2 || !q3 || !q4){
+
+mostrarMensagem(
+"🕵️ Relatório incompleto",
+"Responda todas as perguntas antes de concluir a investigação.",
+"CONTINUAR",
+"this.parentElement.remove()"
+);
+
+return;
+
+}
+
+if(
+q1.value=="A" &&
+q2.value=="B" &&
+q3.value=="B" &&
+q4.value=="C"
+){
+
+
+document.getElementById("missao12Perguntas").style.display="none";
+
+let tela=document.getElementById("investigacao2Intro");
+
+tela.style.backgroundImage="url('missao13.png')";
+
+tela.onclick=function(){
+
+abrirMissao14();
+
+};
+
+}
+
+else{
+
+mostrarMensagem(
+"⚠️ Investigação inconclusiva",
+"O relatório ainda apresenta inconsistências.<br><br>Revise cuidadosamente a demonstração antes de arquivar o caso.",
+"CONTINUAR INVESTIGANDO",
+"this.parentElement.remove()"
+);
+
+}
+
+}
+function abrirMissao14(){
+
+let tela=document.getElementById("investigacao2Intro");
+
+tela.style.backgroundImage="url('missao14.png')";
+
+tela.onclick=null;
+
+document.getElementById("missao14Perguntas").style.display="grid";
+
+}
+
+function verificarMissao14(){
+
+let q1=document.querySelector('input[name="m14q1"]:checked');
+let q2=document.querySelector('input[name="m14q2"]:checked');
+let q3=document.querySelector('input[name="m14q3"]:checked');
+let q4=document.querySelector('input[name="m14q4"]:checked');
+let q5=document.querySelector('input[name="m14q5"]:checked');
+let q6=document.querySelector('input[name="m14q6"]:checked');
+
+if(!q1 || !q2 || !q3 || !q4 || !q5 || !q6){
+
+mostrarMensagem(
+"🕵️ Demonstração incompleta",
+"Responda todas as etapas antes de validar a demonstração.",
+"CONTINUAR",
+"this.parentElement.remove()"
+);
+
+return;
+
+}
+
+if(
+q1.value=="B" &&
+q2.value=="B" &&
+q3.value=="A" &&
+q4.value=="B" &&
+q5.value=="A" &&
+q6.value=="B"
+){
+
+document.getElementById("missao14Perguntas").style.display="none";
+
+let tela=document.getElementById("investigacao2Intro");
+
+finalizarMissao14();
+}
+
+else{
+
+mostrarMensagem(
+"⚠️ Demonstração incompleta",
+"O sistema encontrou inconsistências na demonstração apresentada.<br><br>Revise as etapas da indução matemática antes de tentar novamente.",
+"CONTINUAR INVESTIGANDO",
+"this.parentElement.remove()"
+);
+
+}
+
+}
+function finalizarMissao14(){
+
+// para o cronômetro
+clearInterval(intervaloMissao8);
+
+// guarda o tempo restante
+let tempoFinalMissao2 = tempoMissao8;
+
+localStorage.setItem("tempoFinalMissao2", tempoFinalMissao2);
+
+// esconde perguntas
+document.getElementById("missao14Perguntas").style.display="none";
+
+// vai para missão 15
+let tela=document.getElementById("investigacao2Intro");
+
+tela.style.backgroundImage="url('missao15.png')";
+
+tela.onclick=function(){
+
+abrirMissao16();
+
+};
+
+}
+function abrirMissao16(){
+
+let tela=document.getElementById("investigacao2Intro");
+
+tela.style.backgroundImage="url('missao16.png')";
+
+tela.onclick=function(){
+
+abrirMissao17();
+
+};
+
+}
+function abrirMissao17(){
+
+let tela=document.getElementById("investigacao2Intro");
+
+tela.style.backgroundImage="url('missao17.png')";
+
+tela.onclick=null;
+
+// esconde cronômetro antigo
+document.getElementById("timerMissao8").style.display="none";
+
+// mostra dados finais
+mostrarResultadoInvestigacao2();
+
+}
+
+function mostrarResultadoInvestigacao2(){
+
+let equipe=JSON.parse(localStorage.getItem("equipeAtual"));
+
+let tempo=Number(localStorage.getItem("tempoFinalMissao2"));
+
+let minutos=Math.floor(tempo/60);
+let segundos=tempo%60;
+
+let tempoFormatado=
+(minutos<10?"0":"")+minutos+
+":"+
+(segundos<10?"0":"")+segundos;
+
+let resultado=document.getElementById("resultadoMissao17");
+
+resultado.innerHTML=
+
+"<h1>"+equipe.nome+"</h1>"+
+"<h2>Tempo restante: "+tempoFormatado+"</h2>"+
+"<h3>Pontuação: "+tempo+" pontos</h3>"+
+"<button onclick='encerrarInvestigacao2Final()'>CONTINUAR</button>";
+
+resultado.style.display="block";
+
+}
+function encerrarInvestigacao2Final(){
+
+// esconde resultado final
+document.getElementById("resultadoMissao17").style.display="none";
+
+resetarCamposInvestigacao2();
+
+// limpa telas da investigação 2
+limparInvestigacao2();
+
+// volta para a tela das investigações
+document.getElementById("investigacao2Intro").style.display="none";
+document.getElementById("telaInvestigacoes").style.display="block";
+
+}
+
+function resetarCamposInvestigacao2(){
+
+// limpa todos os inputs
+document.querySelectorAll("#investigacao2Intro input").forEach(function(input){
+
+if(input.type=="radio" || input.type=="checkbox"){
+
+input.checked=false;
+
+}else{
+
+input.value="";
+
+}
+
+});
+
+// limpa selects
+document.querySelectorAll("#investigacao2Intro select").forEach(function(select){
+
+select.selectedIndex=0;
+
+});
+
+// esconde telas das missões
+[
+"desbloquearSistema",
+"missao9Teste",
+"missao10Teste",
+"missao12Perguntas",
+"missao14Perguntas",
+"resultadoMissao17"
+
+].forEach(function(id){
+
+let obj=document.getElementById(id);
+
+if(obj){
+
+obj.style.display="none";
+
+}
+
+});
+
+// limpa o conteúdo do resultado final
+let resultado=document.getElementById("resultadoMissao17");
+
+if(resultado){
+
+resultado.innerHTML="";
+
+}
+
+// remove qualquer radio marcado novamente (garantia)
+document.querySelectorAll("#investigacao2Intro input[type=radio]").forEach(function(r){
+
+r.checked=false;
+
+});
+
+}
+
+function sairDoJogo(){
+
+if(confirm("Deseja realmente sair do jogo?")){
+
+// fecha a aba (quando permitido)
+window.close();
+
+// caso o navegador impeça, volta para a tela inicial
+location.reload();
+
+}
+
+}
+
+function abrirJanelaSair(){
+
+document.getElementById("janelaSair").style.display="flex";
+
+}
+
+function fecharJanelaSair(){
+
+document.getElementById("janelaSair").style.display="none";
+
+}
+
+function confirmarSaida(){
+
+window.close();
+
+}
+
+const { app, BrowserWindow } = require("electron");
+
+function criarJanela() {
+  const janela = new BrowserWindow({
+    width: 1920,
+    height: 1080,
+    fullscreen: true,
+    autoHideMenuBar: true
+  });
+
+  janela.loadFile("index.html");
+}
+
+app.whenReady().then(criarJanela);
+
+app.on("window-all-closed", () => {
+  app.quit();
+});
+
+function limparTelasInvestigacoes(){
+
+[
+"fimCaso",
+"relatorio1a",
+"relatorio1b",
+"fimJogo",
+"falhou1",
+"falhou2",
+"caso1",
+"folha1",
+"casoBase",
+"passoIndutivo",
+"caso2",
+"folha2",
+"casoBase2",
+"passoIndutivo2",
+"caso3",
+"folha3",
+"casoBase3",
+"bonus",
+"bonus4",
+"bonus5",
+
+"investigacao2Intro",
+"testePrimos",
+"ordemInducao",
+"desbloquearSistema",
+"missao9Teste",
+"missao10Teste",
+"missao12Perguntas",
+"missao14Perguntas",
+"resultadoMissao17",
+
+"carta1",
+"carta2",
+"carta3",
+"carta4",
+"salaPistas",
+"pistaVisual",
+"pista5Tela",
+"pista55Tela",
+"pista7Tela",
+"pista77Tela",
+"pista777Tela",
+"pista4Tela",
+"pista44Tela",
+"pista444Tela",
+"fibonacci1Tela",
+"fibonacci2Tela",
+"fibonacci3Tela",
+"final1Tela",
+"final2Tela",
+"final3Tela",
+"final4Tela",
+"final5Tela"
+].forEach(function(id){
+
+let tela=document.getElementById(id);
+
+if(tela){
+tela.style.display="none";
+}
+
+});
+
+if(document.getElementById("botoesSalaPistas")){
+document.getElementById("botoesSalaPistas").style.display="none";
+}
 
 }
